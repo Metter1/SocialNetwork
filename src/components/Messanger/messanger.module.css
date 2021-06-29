@@ -1,0 +1,26 @@
+.block{
+    display: flex;
+    width: 905px;
+    background-color: white;
+    border-radius: 5px;
+}
+.users{
+    margin-right: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.users a:hover{
+    background-color: rgba(133, 133, 133, 0.1);
+}
+.users a{
+    width: 100px;
+    color: black;
+    display: block;
+}
+
+.users a.active{
+    color: rgb(72, 255, 0);
+}
+.message{
+    margin-top: 15px;
+}

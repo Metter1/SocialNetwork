@@ -1,0 +1,31 @@
+.menu{
+    border-radius: 20px;
+    height: 350px;
+    width: 150px;
+    margin-right: 15px;
+
+}
+.list img{
+    margin-top: 3px;
+    margin-left: 5px;
+    width: 14px;
+    height: 14px;
+    object-fit: cover;
+    margin-right: 7px;
+}
+.list{
+    font-size: 14px;
+    margin-left: 5px;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+.list:hover{
+    background-color: rgba(133, 133, 133, 0.1);
+}
+.menu a{
+    color: black;
+}
+a.active{
+    color: rgb(89, 134, 185);
+}

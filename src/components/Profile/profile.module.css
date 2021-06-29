@@ -1,0 +1,32 @@
+.wrapper{
+    display: flex;
+}
+
+.block_avatar{
+    width: 230px;
+    height: 420px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.avatar{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(212, 212, 212);
+    margin: 1rem;
+    border-radius: 3px;
+}
+
+.block_info{
+    width: 660px;
+    height: 150px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.title{
+    margin: 1rem;
+}
