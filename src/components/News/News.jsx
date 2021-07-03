@@ -2,33 +2,32 @@ import React from 'react'
 import s from './news.module.css'
 import Post from './post/Post.jsx'
 
-let postsData = [
-    {
-        id: 1,
-        message: 'Great',
-        likes: 10
-    },
-    {
-        id: 2,
-        message: 'Lorem, ipsum.',
-        likes: 15
-    },
-    {
-        id: 3,
-        message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero rerum modi quae, laborum adipisci a eligendi dignissimos repudiandae natus tenetur tempora quibusdam. Veniam animi doloremque ullam aliquid recusandae sint, voluptatem placeat, dolorum nemo delectus, aperiam quia. Rem quos, est numquam autem exercitationem laudantium id, sed iure facere quaerat ab! Sapiente.',
-        likes: 5
+
+
+
+
+export default function News(props) {
+    let postEl = props.NewsPage.posts.map(p => {
+        return <Post message={p.message} likes={p.likes} />
+    })
+
+    let NewPostEl = React.createRef();
+    let addPost = () =>{
+        props.addPost();
     }
-]
-let postEl = postsData.map(p => {
-    return <Post message={p.message} likes={p.likes}/>
-})
 
-
-export default function News() {
-    
+    let onPostChange = () =>{
+        let text = NewPostEl.current.value;
+        props.updateNewPostText(text);
+    }
     return (
         <div className={s.block}>
             <div className={s.news}>
+                <div className={s.add}>
+                    <textarea onChange={onPostChange} name="" ref={NewPostEl} value={props.newPostText}  placeholder="Tell me smt">
+                    </textarea>
+                    <button onClick={addPost}>post</button>
+                </div>
                 {postEl}
             </div>
             <div className={s.rightside}>
