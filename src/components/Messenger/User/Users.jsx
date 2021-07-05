@@ -1,5 +1,5 @@
 import React from 'react'
-import s from '../messanger.module.css'
+import s from '../messenger.module.css'
 import { NavLink } from 'react-router-dom';
 
 

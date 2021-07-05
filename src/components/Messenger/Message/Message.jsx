@@ -1,5 +1,5 @@
 import React from 'react'
-import s from '../messanger.module.css'
+import s from '../messenger.module.css'
 
 
 export default function Message(props){
