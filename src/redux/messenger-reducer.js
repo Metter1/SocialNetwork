@@ -1,7 +1,46 @@
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 const ADD_POST_MESSAGE = 'ADD-POST-MESSAGE'
 
-const messengerReducer = (state, action) => {
+let initialStore = {
+    users: [
+        {
+            id: 1,
+            name: 'Eugene'
+        },
+        {
+            id: 2,
+            name: 'Dima'
+        },
+        {
+            id: 3,
+            name: 'Sasha'
+        },
+        {
+            id: 4,
+            name: 'Vasya'
+        }
+    ],
+    messages: [
+        {
+            id: 1,
+            message: '21321'
+        },
+        {
+            id: 2,
+            message: 'fsdfs123'
+        },
+        {
+            id: 3,
+            message: 'gsgs'
+        },
+        {
+            id: 4,
+            message: 'vcxvx'
+        }
+    ],
+    newMessageText: '',
+}
+const messengerReducer = (state = initialStore, action) => {
 
     switch (action.type) {
         case ADD_POST_MESSAGE:
@@ -14,8 +53,8 @@ const messengerReducer = (state, action) => {
             return state;
         case UPDATE_NEW_MESSAGE_TEXT:
 
-        state.newMessageText = action.newText;
-        return state;
+            state.newMessageText = action.newText;
+            return state;
 
         default:
             return state;

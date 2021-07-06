@@ -1,8 +1,10 @@
 import React from 'react'
-import s from '../news.module.css'
+import s from '../../news.module.css'
 
 
 export default function Post(props) {
+    
+
     return (
         <div className={s.posts}>
             <div className={s.content}>

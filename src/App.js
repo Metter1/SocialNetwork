@@ -5,7 +5,8 @@ import Header from './components/header/Header.jsx';
 import Sidebar from './components/sidebar/Sidebar.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Messenger from './components/Messenger/Messenger.jsx';
-import News from './components/News/News.jsx';
+import MessengerContainer from './components/Messenger/MessengerContainer.jsx';
+import NewsData from './components/News/NewsData';
 let App = (props) => {
     return (
         <div>
@@ -15,15 +16,9 @@ let App = (props) => {
                     <Sidebar />
                     <Route path='/Profile' component={Profile} />
 
-                    <Route path='/News' render={() => <News
-                        NewsPages={props.state.NewsPage}
-                        dispatch={props.dispatch}
-                    />} />
+                    <Route path='/News' render={() => <NewsData store={props.store} />} />
 
-                    <Route path='/Messages' render={() => <Messenger
-                        MessengerPage={props.state.MessengerPage}
-                        dispatch={props.dispatch} 
-                    />} />
+                    <Route path='/Messages' render={() => <MessengerContainer store={props.store} />} />
                 </div>
             </BrowserRouter>
         </div >
