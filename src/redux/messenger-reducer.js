@@ -41,21 +41,32 @@ let initialStore = {
     newMessageText: '',
 }
 const messengerReducer = (state = initialStore, action) => {
-
     switch (action.type) {
-        case ADD_POST_MESSAGE:
-            let newMessage = {
-                id: 5,
-                message: state.newMessageText,
+        case ADD_POST_MESSAGE: {
+            let newMessageText = state.newMessageText;
+            return {
+                ...state,
+                messages: [...state.messages, { id: 5, message: newMessageText }],
+                newMessageText: ''
             }
-            state.messages.push(newMessage);
-            state.newMessageText = ''
-            return state;
-        case UPDATE_NEW_MESSAGE_TEXT:
 
-            state.newMessageText = action.newText;
-            return state;
-
+            // let newMessage = {
+            //     id: 5,
+            //     message: state.newMessageText,
+            // }
+            // let stateCopy = {...state};
+            // stateCopy.messages = [...state.messages];
+            // stateCopy.messages.push(newMessage);
+            // stateCopy.newMessageText = ''
+        }
+        case UPDATE_NEW_MESSAGE_TEXT: {
+            return {
+                ...state,
+                newMessageText: action.newText
+            }
+            // let stateCopy = { ...state }
+            // stateCopy.newMessageText = action.newText;
+        }
         default:
             return state;
     }

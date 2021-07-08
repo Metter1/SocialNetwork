@@ -7,7 +7,7 @@ import Post from './post/Post.jsx'
 
 export default function News(props) {
     let postEl = props.posts.map(p => {
-        return <Post message={p.message} likes={p.likes} />
+        return <Post message={p.message} key={p.id} likes={p.likes} />
     })
 
     let NewPostEl = React.createRef();

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 
 
-export default function Users(props) {
+export default function MessengerUsers(props) {
     let path = '/Messages/' + props.id;
     return (
             <NavLink to={path} activeClassName={s.active}>{props.name}</NavLink>

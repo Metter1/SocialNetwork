@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './messenger.module.css'
 import Message from './Message/Message'
-import Users from './User/Users'
+import MessengerUsers from './MessengerUsers/MessengerUsers'
 // updateNewPostTextActionCreator;
 
 
@@ -9,10 +9,10 @@ import Users from './User/Users'
 
 export default function Messenger(props) {
 
-    let usersEl = props.users.map(u => { return <Users id={u.id} name={u.name} /> })
-    let Messages = props.messages.map(m => { return <Message id={m.id} message={m.message} /> })
-    
-    let addMessage = () =>{
+    let usersEl = props.users.map(u => { return <MessengerUsers id={u.id} key={u.id} name={u.name} /> })
+    let Messages = props.messages.map(m => { return <Message id={m.id} key={m.id} message={m.message} /> })
+
+    let addMessage = () => {
         props.addMessage()
     }
     let onMessageChange = (e) => {

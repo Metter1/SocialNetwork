@@ -1,28 +1,28 @@
 import React from 'react'
-import Message from './Message/Message'
-import Users from './User/Users'
-import { addMessageActionCreator, updateNewMessageTextActionCreator} from '../../redux/messenger-reducer'
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/messenger-reducer'
 import Messenger from './Messenger'
+import { connect } from 'react-redux'
 // updateNewPostTextActionCreator;
 
-
-
-
-export default function MessengerContainer(props) {
-    let state = props.store.getState();
-    let addMessage = () =>{
-        props.store.dispatch(addMessageActionCreator())
+let mapStateToProps = (state) => {
+    return {
+        users: state.MessengerPage.users,
+        messages: state.MessengerPage.messages,
+        newMessageText: state.MessengerPage.newMessageText
     }
-    let updateNewMessageText = (text) => {
-        props.store.dispatch(updateNewMessageTextActionCreator(text))
-    }
-
-    return (
-        <Messenger
-        users = {state.MessengerPage.users}
-        messages = {state.MessengerPage.messages}
-        newMessageText = {state.MessengerPage.newMessageText}
-        addMessage = {addMessage}
-        updateNewMessageText = {updateNewMessageText} />
-    )
 }
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addMessage: () => {
+            dispatch(addMessageActionCreator())
+        },
+        updateNewMessageText: (text) => {
+            dispatch(updateNewMessageTextActionCreator(text))
+        }
+    }
+}
+
+const MessengerContainer = connect(mapStateToProps, mapDispatchToProps)(Messenger);
+
+export default MessengerContainer;

@@ -2,10 +2,10 @@ import React from 'react'
 import NewsContainer from './NewsContainer';
 
 
-export default function NewsData(props) {
+export default function NewsData() {
     return (
         <div>
-            <NewsContainer store={props.store} />
+            <NewsContainer />
         </div>
     )
 }

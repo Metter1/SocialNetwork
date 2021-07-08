@@ -4,9 +4,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/header/Header.jsx';
 import Sidebar from './components/sidebar/Sidebar.jsx';
 import Profile from './components/Profile/Profile.jsx';
-import Messenger from './components/Messenger/Messenger.jsx';
-import MessengerContainer from './components/Messenger/MessengerContainer.jsx';
 import NewsData from './components/News/NewsData';
+import MessengerContainer from './components/Messenger/MessengerContainer.jsx';
+import UsersContainer from './components/Users/UsersContainer';
+
+
 let App = (props) => {
     return (
         <div>
@@ -16,9 +18,12 @@ let App = (props) => {
                     <Sidebar />
                     <Route path='/Profile' component={Profile} />
 
-                    <Route path='/News' render={() => <NewsData store={props.store} />} />
+                    <Route path='/News' render={() => <NewsData />} />
 
-                    <Route path='/Messages' render={() => <MessengerContainer store={props.store} />} />
+                    <Route path='/Messages' render={() => <MessengerContainer />} />
+
+                    <Route path='/Users' render={() => <UsersContainer />} />
+
                 </div>
             </BrowserRouter>
         </div >

@@ -29,6 +29,13 @@ export default function Sidebar() {
                         Messenger
                     </li>
                 </NavLink>
+
+                <NavLink to="/Users" activeClassName={s.active}>
+                    <li className={s.list}>
+                        <img className={s.icon} src="/images/userAdd.svg" alt="Icon" />
+                        Users
+                    </li>
+                </NavLink>
             </ul>
         </div>
     )
