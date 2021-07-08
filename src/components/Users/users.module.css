@@ -31,3 +31,11 @@
     cursor: pointer;
     background-color: rgb(157, 184, 243);
 }
+
+.pagenation{
+    display: flex;
+    justify-content: space-between;
+}
+.pagenationActive{
+    color: red;
+}
