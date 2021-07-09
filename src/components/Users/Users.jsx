@@ -1,5 +1,6 @@
 import React from 'react'
 import s from './users.module.css'
+import { NavLink } from 'react-router-dom';
 
 export default function Users(props) {
 
@@ -22,8 +23,11 @@ export default function Users(props) {
                 {
                     props.users.map(u => {
                         return (
-                            <div className={s.user}>
-                                <img src={u.photos.small != null ? u.photos.small : 'images/userPage.svg'} alt="photo" className={s.photo} />
+                            <div className={s.user} key={u.id}>
+                                <NavLink to={'/Profile/' + u.id}>
+                                    <img src={u.photos.small != null ? u.photos.small : 'images/userPage.svg'}
+                                        alt="photo" className={s.photo} />
+                                </NavLink>
                                 <h4 className={s.user__name}>{u.name}</h4>
                                 {u.followed ? <button onClick={() => { props.unfollow(u.id) }} className={s.btn}>followed</button> :
                                     <button onClick={() => { props.follow(u.id) }} className={s.btn}>unfollowed</button>}
