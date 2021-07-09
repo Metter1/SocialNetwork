@@ -1,0 +1,7 @@
+.preloader{
+    width: 600px;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    margin-right: 15px;
+    border-radius: 5px;
+}
