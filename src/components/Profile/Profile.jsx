@@ -12,7 +12,7 @@ export default function Profile(props) {
     return (
         <div className={s.wrapper}>
             <div className={s.block_avatar}>
-                <img className={s.avatar} src={props.profile.photos.large != null ? props.profile.photos.large : 'images/unknow_user.svg'} alt="icon user" />
+                <img className={s.avatar} src={props.profile.photos.large != null ? props.profile.photos.large : '/images/unknow_user.svg'} alt="icon user" />
             </div>
             <div className={s.block_info}>
                 <h3 className={s.title}>

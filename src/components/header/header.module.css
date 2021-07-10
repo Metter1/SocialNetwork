@@ -7,6 +7,7 @@
 }
 .row{
     display: flex;
+    justify-content:space-between;
     align-items: center;
 }
 .title{
@@ -23,5 +24,13 @@
     margin-right: 15px;
 }
 
+.loginBlock{
+    justify-self: right;
+    margin-left: auto;
+    align-self: center;
+}
+.link{
+    color: var(--color-primary);
+}
 
 
