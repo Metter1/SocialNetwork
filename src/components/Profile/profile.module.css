@@ -5,7 +5,7 @@
 .block_avatar{
     width: 230px;
     height: 420px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--color-primary);
     display: flex;
     justify-content: center;
     margin-right: 15px;
@@ -23,7 +23,7 @@
 .block_info{
     width: 660px;
     height: 150px;
-    background-color: white;
+    background-color: var(--color-primary);
     border-radius: 5px;
 }
 

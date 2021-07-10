@@ -4,8 +4,6 @@ import { follow, unfollow, setUsers, setCurrentPage, setUsersTotalCount, toggleI
 import * as axios from 'axios'
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader.jsx';
-import Profile from './../Profile/Profile';
-
 
 
 class UsersAPIComponent extends React.Component {

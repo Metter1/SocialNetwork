@@ -2,7 +2,7 @@
     display: flex;
     justify-content:space-evenly;
     width: 905px;
-    background-color: white;
+    background-color: var(--color-primary);
     border-radius: 5px;
 }
 .users{
