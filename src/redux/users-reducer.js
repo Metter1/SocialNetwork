@@ -91,7 +91,6 @@ export const getPageNum = (pageNumber, pageSize) => {
 
 export const follow = (userID) => {
     return (dispatch) => {
-        debugger
         dispatch(toggleIsFollowing(true, userID))
         usersAPI.Follow(userID).then(data => {
             if (data.resultCode === 0) {
