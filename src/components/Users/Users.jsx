@@ -31,20 +31,23 @@ export default function Users(props) {
                                 </NavLink>
                                 <h4 className={s.user__name}>{u.name}</h4>
                                 {u.followed ?
-
-                                    <button onClick={() => {
+                                    <button disabled={props.followingInProgress.some(id => id===u.id)} onClick={() => {
+                                        props.toggleIsFollowing(true, u.id)
                                         followAPI.deleteFollow(u.id).then(data => {
-                                            if (data.resultCode == 0) {
+                                            if (data.resultCode === 0) {
                                                 props.unfollow(u.id)
                                             }
+                                            props.toggleIsFollowing(false, u.id)
                                         });
                                     }} className={s.btn}>followed</button> :
 
-                                    <button onClick={() => {
+                                    <button disabled={props.followingInProgress.some(id => id===u.id)} onClick={() => {
+                                        props.toggleIsFollowing(true, u.id)
                                         followAPI.postFollow(u.id).then(data => {
-                                            if (data.resultCode == 0) {
+                                            if (data.resultCode === 0) {
                                                 props.follow(u.id)
                                             }
+                                            props.toggleIsFollowing(false, u.id)
                                         });
                                     }} className={s.btn}>unfollowed</button>}
 
@@ -54,6 +57,6 @@ export default function Users(props) {
                 }
             </div>
 
-        </div>
+        </div >
     )
 }
