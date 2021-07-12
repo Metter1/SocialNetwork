@@ -2,13 +2,14 @@ import React from 'react'
 import s from './messenger.module.css'
 import Message from './Message/Message'
 import MessengerUsers from './MessengerUsers/MessengerUsers'
+import { Redirect } from 'react-router-dom';
 // updateNewPostTextActionCreator;
 
 
 
 
 export default function Messenger(props) {
-
+    if(!this.props.isAuth){return <Redirect to='/Login'/>}
     let usersEl = props.users.map(u => { return <MessengerUsers id={u.id} key={u.id} name={u.name} /> })
     let Messages = props.messages.map(m => { return <Message id={m.id} key={m.id} message={m.message} /> })
 

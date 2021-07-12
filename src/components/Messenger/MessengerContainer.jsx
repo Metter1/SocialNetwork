@@ -8,7 +8,8 @@ let mapStateToProps = (state) => {
     return {
         users: state.MessengerPage.users,
         messages: state.MessengerPage.messages,
-        newMessageText: state.MessengerPage.newMessageText
+        newMessageText: state.MessengerPage.newMessageText,
+        isAuth: state.auth.isAuth
     }
 }
 
