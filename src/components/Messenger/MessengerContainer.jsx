@@ -2,6 +2,7 @@ import React from 'react'
 import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/messenger-reducer'
 import Messenger from './Messenger'
 import { connect } from 'react-redux'
+import { withAuthRedirect } from './../hoc/withAuthRedirect';
 // updateNewPostTextActionCreator;
 
 let mapStateToProps = (state) => {
@@ -9,7 +10,6 @@ let mapStateToProps = (state) => {
         users: state.MessengerPage.users,
         messages: state.MessengerPage.messages,
         newMessageText: state.MessengerPage.newMessageText,
-        isAuth: state.auth.isAuth
     }
 }
 
@@ -24,6 +24,10 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const MessengerContainer = connect(mapStateToProps, mapDispatchToProps)(Messenger);
+    
+let withAuthRedirectContainer = withAuthRedirect(Messenger)
+
+
+const MessengerContainer = connect(mapStateToProps, mapDispatchToProps)(withAuthRedirectContainer);
 
 export default MessengerContainer;
