@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { addPostActionCreator, updateNewPostTextActionCreator } from '../../redux/news-reducer';
 import News from './NewsComp/News';
+import { withAuthRedirect } from './../hoc/withAuthRedirect';
 
 // export default function NewsContainer(props) {
 
@@ -50,8 +52,8 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(News)
 
-
-const NewsContainer = connect(mapStateToProps, mapDispatchToProps)(News);
-
-export default NewsContainer;
