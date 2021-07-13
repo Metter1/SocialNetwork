@@ -5,6 +5,8 @@ import { getUserProfile } from './../../redux/profile-reducer';
 import {  withRouter } from 'react-router-dom';
 import { withAuthRedirect } from './../hoc/withAuthRedirect';
 import { compose } from 'redux';
+import ProfileStatus from './ProfileInfo/ProfileStatus';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
@@ -19,8 +21,9 @@ class ProfileContainer extends React.Component {
     render() {
         
         return (
-            <div>
+            <div >
                 <Profile {...this.props} profile={this.props.profile} />
+                <ProfileStatus status={'sdsd'} />
             </div >
         )
     }
