@@ -4,7 +4,7 @@ let initialStore = {
     userID: null,
     email: null,
     login: null,
-    isAuth: false,
+    isAuth: true,
 }
 const authReducer = (state = initialStore, action) => {
     switch (action.type) {
