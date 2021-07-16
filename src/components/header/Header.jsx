@@ -13,14 +13,10 @@ export default function Header(props) {
                     <h2 className={s.title}>My social network</h2>
                 </div>
                 <div className={s.loginBlock}>
-                    {props.isAuth ?
-                        <span className={s.link}>
-                            {props.login}
-                        </span> :
-
-                        <NavLink to={'/login'} className={s.link}>
-                            Login
-                        </NavLink>}
+                    {props.isAuth && <div><span className={s.link}>{props.login} </span>
+                            <button onClick={props.logout}>Login</button>
+                          </div>
+                    }
                 </div>
             </div>
         </div>

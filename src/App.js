@@ -8,27 +8,35 @@ import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/header/HeaderContainer';
 import Login from './components/Login/Login';
+import { Component } from 'react';
 
 
-let App = (props) => {
-    return (
-        <div>
-            <HeaderContainer />
-            <div className='container'>
-                <Sidebar />
-                <Route path='/Profile/:userID?' render={() => <ProfileContainer />} />
+class App extends Component {
 
-                <Route path='/News' render={() => <NewsData />} />
+    componentDidMount(){
+        
+    }
 
-                <Route path='/Messages' render={() => <MessengerContainer />} />
+    render() {
+        return (
+            <div>
+                <HeaderContainer />
+                <div className='container'>
+                    <Sidebar />
+                    <Route path='/Profile/:userID?' render={() => <ProfileContainer />} />
 
-                <Route path='/Users' render={() => <UsersContainer />} />
+                    <Route path='/News' render={() => <NewsData />} />
 
-                <Route path='/Login' render={() => <Login />} />
+                    <Route path='/Messages' render={() => <MessengerContainer />} />
 
-            </div>
-        </div >
-    );
+                    <Route path='/Users' render={() => <UsersContainer />} />
+
+                    <Route path='/Login' render={() => <Login />} />
+
+                </div>
+            </div >
+        );
+    }
 }
 
 

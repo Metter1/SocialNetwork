@@ -28,10 +28,10 @@ export const profileAPI = {
         return instance.get(`profile/` + id).then(response => response.data)
     },
     getStatus(id) {
-        return instance.get(`profile/status/` + id).then(response => response.data)
+        return instance.get(`profile/status/` + id)
     },
     updateStatus(status){
-        return instance.put(`profile/status/`, {status: status}).then(response => response.data)
+        return instance.put(`profile/status/`, {status: status})
     }
 }
 
@@ -39,19 +39,11 @@ export const profileAPI = {
 export const authAPI = {
     getAuth() {
         return instance.get(`auth/me`).then(response => response.data)
+    },
+    login(email, password, remember) {
+        return instance.post(`auth/login`, {email, password, remember})
+    },
+    logout(){
+        return instance.delete(`auth/login`)
     }
-}
-
-
-
-// componentDidMount() {
-//     axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-//         withCredentials: true
-//     })
-//         .then(response => {
-//             if(response.data.resultCode === 0) {
-//                 let {email, id, login} = response.data.data
-//                 this.props.setAuthUserDaTa(email, id, login)
-//             }
-//         });
-// }
+}   
