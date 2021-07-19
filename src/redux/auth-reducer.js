@@ -23,7 +23,7 @@ export const setAuthUserData = (email, userID, login, isAuth) => ({ type: SET_US
 export const setloginSuccess = (loginSuccess) => ({ type: LOGIN_SUCCESS, loginSuccess})
 
 export const getAuthUserData = () => (dispatch) =>{
-    authAPI.getAuth().then(data => {
+    return authAPI.getAuth().then(data => {
         if(data.resultCode === 0) {
             let {email, id, login} = data.data
             dispatch(setAuthUserData(email, id, login, true))
@@ -36,10 +36,8 @@ export const login = (email, password, remember, setStatus) => (dispatch) =>{
         if(response.data.resultCode === 0) {
             dispatch(getAuthUserData())
         }else if(response.data.resultCode === 1){
-            console.log(setStatus)
             dispatch(setloginSuccess(true));
         }
-        return '123';
     });
 }
 export const logout = () => (dispatch) =>{

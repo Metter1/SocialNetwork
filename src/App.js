@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Sidebar from './components/sidebar/Sidebar.jsx';
 import NewsData from './components/News/NewsData';
 import MessengerContainer from './components/Messenger/MessengerContainer.jsx';
@@ -9,15 +9,22 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/header/HeaderContainer';
 import Login from './components/Login/Login';
 import { Component } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import Preloader from './components/common/Preloader/Preloader';
+import { initializeApp } from './redux/app-reducer';
 
 
 class App extends Component {
 
-    componentDidMount(){
-        
+    componentDidMount() {
+        this.props.initializeApp();
     }
 
     render() {
+        if (!this.props.initialized) {
+            return <Preloader />
+        }
         return (
             <div>
                 <HeaderContainer />
@@ -38,6 +45,12 @@ class App extends Component {
         );
     }
 }
+const mapStateToProps = (state) => ({
+    initialized: state.app.initialized
+})
+
+export default compose(
+    withRouter,
+    connect(mapStateToProps, { initializeApp }))(App);
 
 
-export default App;
