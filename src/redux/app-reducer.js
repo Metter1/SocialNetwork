@@ -15,12 +15,10 @@ const appReducer = (state = initialStore, action) => {
 }
 export const initializedSuccess = (initialized) => ({ type: INITIALIZED_SUCCESS, initialized })
 
-export const initializeApp = () => (dispatch) => {
-    let promise = dispatch(getAuthUserData())
+export const initializeApp = () => async (dispatch) => {
+    let promise = await dispatch(getAuthUserData())
     Promise.all([promise])
-        .then(() => {
-            dispatch(initializedSuccess(true))
-        })
+    dispatch(initializedSuccess(true))
 }
 
 

@@ -27,7 +27,6 @@ const LoginForm = (props) => {
             initialValues={{ email: '', password: '', remember: '' }}
             onSubmit={(data, actions) => {
                 let smt = (props.login(data.email, data.password, data.remember, actions.setStatus))
-                debugger
             }}
            
         >

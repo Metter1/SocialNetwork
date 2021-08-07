@@ -4,7 +4,7 @@ const ProfileStatusFunc = (props) => {
     let [editMode, setEditMode] = useState(false)
     let [status, setStatus] = useState(props.status)
 
-    
+
     useEffect(() => {
         setStatus(props.status)
     }, [props.status])
@@ -14,6 +14,7 @@ const ProfileStatusFunc = (props) => {
     //         cleanup
     //     }
     // }, [input])
+
 
     let deactivateEditMode = () => {
         setEditMode(false)
@@ -27,7 +28,7 @@ const ProfileStatusFunc = (props) => {
     let onStatusChange = (e) => {
         setStatus(e.currentTarget.value)
     }
-    
+
 
     return (
         <div>

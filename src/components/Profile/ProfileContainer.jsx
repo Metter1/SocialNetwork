@@ -8,7 +8,6 @@ import { compose } from 'redux';
 import ProfileStatusFunc from './ProfileInfo/ProfileStatusFunc';
 
 class ProfileContainer extends React.Component {
-
     componentDidMount() {
         let userID = this.props.match.params.userID;
         
@@ -22,9 +21,7 @@ class ProfileContainer extends React.Component {
         this.props.getUserStatus(userID);
     }
     
-
     render() {
-
         return (
             <div >
                 <Profile {...this.props} profile={this.props.profile} />

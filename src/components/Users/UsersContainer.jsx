@@ -1,11 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { followSuccess, unfollowSuccess, toggleIsFollowing, getUsers, getPageNum, follow, unfollow } from './../../redux/users-reducer';
+import { followSuccess, unfollowSuccess, toggleIsFollowingProgress, getUsers, getPageNum, follow, unfollow } from './../../redux/users-reducer';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader.jsx';
 import { compose } from 'redux';
 import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsersS } from '../../redux/users-selectors';
-
 
 class UsersAPIComponent extends React.Component {
 
@@ -33,7 +32,7 @@ class UsersAPIComponent extends React.Component {
                 pageSize={this.props.pageSize}
                 currentPage={this.props.currentPage}
                 users={this.props.users}
-                toggleIsFollowing={this.props.toggleIsFollowing}
+                toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
                 followingInProgress={this.props.followingInProgress}
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
@@ -89,6 +88,6 @@ let mapStateToProps = (state) => {
 
 
 export default compose(
-    connect(mapStateToProps, { followSuccess, unfollowSuccess, follow, unfollow, toggleIsFollowing, getUsers, getPageNum }),
+    connect(mapStateToProps, { followSuccess, unfollowSuccess, follow, unfollow, toggleIsFollowingProgress, getUsers, getPageNum }),
 )(UsersAPIComponent)
 
