@@ -6,8 +6,6 @@
     width: 230px;
     height: 420px;
     background-color: var(--color-primary);
-    display: flex;
-    justify-content: center;
     margin-right: 15px;
     border-radius: 5px;
 }

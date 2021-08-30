@@ -9,10 +9,17 @@ export default function Profile(props) {
         
     }
 
+    const onMainPhotoSelected = (e) =>{
+        if(e.target.files.length){
+            props.savePhoto(e.target.files[0]);
+        }
+    }
+
     return (
         <div className={s.wrapper}>
             <div className={s.block_avatar}>
-                <img className={s.avatar} src={props.profile.photos.large != null ? props.profile.photos.large : '/images/unknow_user.svg'} alt="icon user" />
+                <img className={s.avatar} src={ props.profile.photos.large != null ? props.profile.photos.large : 'https://www.svgrepo.com/show/213315/avatar-profile.svg' } alt="icon user" />
+                {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
             </div>
             <div className={s.block_info}>
                 <h3 className={s.title}>
@@ -21,7 +28,10 @@ export default function Profile(props) {
                 <span>
                     {props.profile.aboutMe}
                 </span>
+                
             </div>
+            
         </div>
     )
 }
+

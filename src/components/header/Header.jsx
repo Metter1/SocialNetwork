@@ -9,7 +9,7 @@ export default function Header(props) {
         <div className={s.head}>
             <div className="container">
                 <div className={s.row}>
-                    <img className={s.logo} src="/images/logo.svg" alt="Logo" />
+                    <img className={s.logo} src="https://image.flaticon.com/icons/png/512/1251/1251696.png" alt="Logo" />
                     <h2 className={s.title}>My social network</h2>
                 </div>
                 <div className={s.loginBlock}>

@@ -1,9 +1,9 @@
-import React from 'react'
+// import React from 'react'
 
-export default function ProfileInfo() {
-    return (
-        <div>
-            rfr
-        </div>
-    )
-}
+// export default function ProfileInfo() {
+//     return (
+//         <div>
+//             rfr
+//         </div>
+//     )
+// }
