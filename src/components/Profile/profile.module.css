@@ -29,3 +29,11 @@
     margin: 1rem;
 }
 
+.form{
+    border-radius: 10px;
+    border: 3px solid red;
+}
+
+.active{
+    border: 10px solid yellow
+}

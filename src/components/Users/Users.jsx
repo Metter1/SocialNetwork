@@ -16,7 +16,7 @@ export default function Users(props) {
         <div>
             <div className={s.pagenation}>
                 {pages.map(p => {
-                    return <span className={props.currentPage === p && s.pagenationActive} onClick={(event) => { props.onPageChanged(p) }}>{p}</span>
+                    return <span key={p}className={props.currentPage === p && s.pagenationActive} onClick={(event) => { props.onPageChanged(p) }}>{p}</span>
                 })}
             </div>
             <div className={s.users}>
