@@ -56,7 +56,7 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     if (response.data.resultCode === 0) {
         dispatch(getUserProfile(userID))
     }else {
-        return Promise.reject(response.data.message[0]);
+        return Promise.reject(response.data.messages[0]);
     }
 }
 

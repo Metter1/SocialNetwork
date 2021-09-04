@@ -9,13 +9,13 @@ const Login = (props) => {
     if (props.isAuth) {
         return <Redirect to={'/profile'} />
     }
-    
+
     return (
         <div>
             <div>
                 <h2>LOGIN PLS</h2>
             </div>
-            <LoginForm login={props.login} />
+            <LoginForm login={props.login} captchaUrl={props.captchaUrl} />
             {props.loginSuccess && <Error />}
         </div>
     )
@@ -26,32 +26,47 @@ const LoginForm = (props) => {
         <Formik
             initialValues={{ email: '', password: '', remember: '' }}
             onSubmit={(data, actions) => {
-                let smt = (props.login(data.email, data.password, data.remember, actions.setStatus))
+                props.login(data.email, data.password, data.remember, data.captcha).then().catch(e =>{
+                    console.log(e);
+                })
+
             }}
-           
+
         >
             {
-              
-                <Form>
-                    <Field type="text" name="email" />
-                    <Field type="password" name="password" />
-                    <Field type="checkbox" name="remember" />
-                    <button type="submit"></button>
-                </Form>
+                ({ errors, touched, isValidating }) => (
+                    <Form>
+                        <Field type="text" name="email" />
+                        <Field type="password" name="password" />
+                        <Field type="checkbox" name="remember" />
+                        {props.captchaUrl && <img src={props.captchaUrl} />}
+                        {props.captchaUrl && <Field type="text" name="captcha" validate={captchaValidate}/>}
+                        {errors.captcha && touched.captcha ? <div>{errors.captcha}</div> : ''}
+                        <button type="submit"></button>
+                    </Form>
 
-            }
+                )}
         </Formik>
     )
 }
 const Error = () => {
     return (
         <div>
-            <h2 style={{color: 'red'}}>Wrong password or login</h2>
+            <h2 style={{ color: 'red' }}>Wrong password or login</h2>
         </div>
     )
 }
 
+function captchaValidate(value) {
+    let error
+    if(!value){
+        error = 'required'
+    }
+    return error;
+}
+
 const mapStateToProps = (state) => ({
+    captchaUrl: state.auth.captchaUrl,
     isAuth: state.auth.isAuth,
     loginSuccess: state.auth.loginSuccess
 })

@@ -35,7 +35,7 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
         >
             {({ errors, touched, isValidating }) => (
                 <Form>
-                    <Field type="text" as={'textarea'} name="aboutMe" className={`${s.form_textarea} ${s.form}`} validate={validate} />
+                    <Field min="3" type="text" as={'textarea'} name="aboutMe" className={`${s.form_textarea} ${s.form}`} validate={validate} />
                     {errors.aboutMe && touched.aboutMe && <div>{errors.aboutMe}</div>}
                     <Field type="text" as={'textarea'} name="lookingForAJobDescription" className={`${s.form_textarea} ${s.form}`} validate={validate} />
                     {errors.lookingForAJobDescription && touched.lookingForAJobDescription && <div>{errors.lookingForAJobDescription}</div>}
@@ -49,7 +49,7 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
                     {Object.keys(profile.contacts).map(key => {
                         return <div key={key} className={s.contacts}>
                             {key}:
-                            <Field type="text" name={`contacts.` + key} validate={validateContact} />
+                            <Field type="text" name={`contacts.` + key}  />
                         </div>
                         
                     })}
@@ -85,7 +85,7 @@ function validate(value) {
     let error;
     if (!value) {
         error = 'Required';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+    } else if (value.length < 3) {
         error = 'Invalid';
     }
     return error;
