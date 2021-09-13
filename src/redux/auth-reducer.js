@@ -1,8 +1,10 @@
 
-import { authAPI, securityAPI } from './../api/api';
+import { authAPI, profileAPI, securityAPI } from './../api/api';
 const SET_USER_DATA = 'SET_USER_DATA';
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS';
+const SET_ERROR = 'SET_ERROR'
+const GET_AUTH_USER_PHOTO = 'GET_AUTH_USER_PHOTO';
 let initialStore = {
     userID: null,
     email: null,
@@ -10,25 +12,38 @@ let initialStore = {
     isAuth: false,
     loginSuccess: null,
     captchaUrl: null,
+    error: null,
+    UserAuthPhoto: null,
 }
 const authReducer = (state = initialStore, action) => {
     switch (action.type) {
+        case SET_ERROR:
+            return { ...state, ...action.payload }
         case SET_USER_DATA:
             return { ...state, ...action.data, isAuth: action.data.isAuth }
         case LOGIN_SUCCESS:
             return { ...state, loginSuccess: action.loginSuccess }
         case GET_CAPTCHA_URL_SUCCESS:
             return { ...state, ...action.payload }
+        case GET_AUTH_USER_PHOTO:
+            return { ...state, UserAuthPhoto: action.photo }
         default:
             return state
     }
 }
+export const setError = (error) => ({ type: SET_ERROR, payload: { error } })
 export const setAuthUserData = (email, userID, login, isAuth) => ({ type: SET_USER_DATA, data: { email, userID, login, isAuth } })
 export const setloginSuccess = (loginSuccess) => ({ type: LOGIN_SUCCESS, loginSuccess })
 export const getCaptchaUrlSuccess = (captchaUrl) => ({ type: GET_CAPTCHA_URL_SUCCESS, payload: { captchaUrl } })
+export const setAuthUserPhoto = (photo) => ({ type: GET_AUTH_USER_PHOTO, photo })
+
+
+
 
 export const getAuthUserData = () => async (dispatch) => {
+
     const data = await authAPI.getAuth();
+
     if (data.resultCode === 0) {
         let { email, id, login } = data.data
         dispatch(setAuthUserData(email, id, login, true))
@@ -42,7 +57,9 @@ export const login = (email, password, remember, captcha) => async (dispatch) =>
         if (response.data.resultCode === 10) {
             dispatch(getCaptchaUrl())
         }
-        return Promise.reject(response.data.messages[0]);
+        let m = Promise.reject(response.data.messages[0])
+        dispatch(setError(response.data.messages[0]))
+        return m;
     }
 }
 

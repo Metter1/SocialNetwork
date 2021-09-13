@@ -3,16 +3,16 @@
 }
 
 .block_avatar{
-    width: 230px;
-    height: 420px;
+    width: 200px;
+    height: 400px;
     background-color: var(--color-primary);
     margin-right: 15px;
     border-radius: 5px;
 }
 
 .avatar{
-    width: 200px;
-    height: 200px;
+    width: 168px;
+    height: 168px;
     background-color: rgb(212, 212, 212);
     margin: 1rem;
     border-radius: 3px;

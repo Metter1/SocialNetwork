@@ -22,7 +22,7 @@ class App extends Component {
     }
 
     render() {
-        if (!this.props.initialized) {
+        if (!this.props.initialized ) {
             return <Preloader />
         }
         return (
@@ -46,7 +46,8 @@ class App extends Component {
     }
 }
 const mapStateToProps = (state) => ({
-    initialized: state.app.initialized
+    initialized: state.app.initialized,
+    isAuth: state.auth.isAuth
 })
 
 export default compose(

@@ -1,6 +1,7 @@
 import React from 'react'
 import s from './users.module.css'
 import { NavLink } from 'react-router-dom';
+import Paginator from './../common/paginator/Paginator';
 
 export default function Users(props) {
 
@@ -11,14 +12,9 @@ export default function Users(props) {
         pages.push(i);
     }
 
-
     return (
-        <div>
-            <div className={s.pagenation}>
-                {pages.map(p => {
-                    return <span key={p}className={props.currentPage === p && s.pagenationActive} onClick={(event) => { props.onPageChanged(p) }}>{p}</span>
-                })}
-            </div>
+        <div >
+            <Paginator totalUsersCount={props.totalUsersCount} pageSize={props.pageSize}currentPage={props.currentPage} onPageChanged={props.onPageChanged} />
             <div className={s.users}>
                 {
                     props.users.map(u => {
@@ -31,7 +27,7 @@ export default function Users(props) {
                                 <h4 className={s.user__name}>{u.name}</h4>
                                 {u.followed ?
                                     <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                        onClick={() => {  props.unfollow(u.id) }} className={s.btn}>followed</button> :
+                                        onClick={() => { props.unfollow(u.id) }} className={s.btn}>followed</button> :
 
                                     <button disabled={props.followingInProgress.some(id => id === u.id)}
                                         onClick={() => { props.follow(u.id) }} className={s.btn}>unfollowed</button>}
@@ -41,7 +37,6 @@ export default function Users(props) {
                     })
                 }
             </div>
-
         </div >
     )
 }

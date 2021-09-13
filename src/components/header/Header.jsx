@@ -1,22 +1,22 @@
 import React from 'react';
 import s from './header.module.css'
-import { NavLink } from 'react-router-dom';
+import logo from '../../assets/images/logo.svg'
 
 
-
-export default function Header(props) {
+export default function Header({profile, logout, isAuth, login, UserAuthPhoto}) {
     return (
         <div className={s.head}>
             <div className="container">
                 <div className={s.row}>
-                    <img className={s.logo} src="https://image.flaticon.com/icons/png/512/1251/1251696.png" alt="Logo" />
-                    <h2 className={s.title}>My social network</h2>
+                    <img className={s.logo} src={logo} alt="Logo" />
+                    <h2 className={s.title}>Social</h2>
                 </div>
                 <div className={s.loginBlock}>
-                    {props.isAuth && <div><span className={s.link}>{props.login} </span>
-                            <button onClick={props.logout}>Login</button>
+                    {isAuth && <div><span className={s.link}>{login}</span>
+                            <button className={s.login_button} onClick={logout}>Выйти</button>
                           </div>
                     }
+                    <img src={UserAuthPhoto} alt="" />
                 </div>
             </div>
         </div>

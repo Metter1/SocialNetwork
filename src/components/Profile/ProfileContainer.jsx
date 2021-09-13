@@ -10,10 +10,11 @@ import ProfileStatusFunc from './ProfileInfo/ProfileStatusHook';
 class ProfileContainer extends React.Component {
 
     refreshProfile() {
+        debugger
         let userID = this.props.match.params.userID;
 
         if (!userID) {
-            userID = this.props.authorizeduserID;
+            userID = this.props.authorizedUserID;
             if (!userID) {
                 this.props.history.push("/login")
             }
@@ -50,7 +51,7 @@ let mapStateToProps = (state) => {
     return {
         profile: state.profilePage.profile,
         status: state.profilePage.status,
-        authorizeduserID: state.auth.userID
+        authorizedUserID: state.auth.userID
     }
 }
 

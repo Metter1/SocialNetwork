@@ -15,7 +15,7 @@ const Login = (props) => {
             <div>
                 <h2>LOGIN PLS</h2>
             </div>
-            <LoginForm login={props.login} captchaUrl={props.captchaUrl} />
+            <LoginForm login={props.login} captchaUrl={props.captchaUrl} error={props.error}/>
             {props.loginSuccess && <Error />}
         </div>
     )
@@ -27,7 +27,7 @@ const LoginForm = (props) => {
             initialValues={{ email: '', password: '', remember: '' }}
             onSubmit={(data, actions) => {
                 props.login(data.email, data.password, data.remember, data.captcha).then().catch(e =>{
-                    console.log(e);
+                    
                 })
 
             }}
@@ -36,6 +36,7 @@ const LoginForm = (props) => {
             {
                 ({ errors, touched, isValidating }) => (
                     <Form>
+                        {props.error && <div>{props.error}</div>}
                         <Field type="text" name="email" />
                         <Field type="password" name="password" />
                         <Field type="checkbox" name="remember" />
@@ -66,6 +67,7 @@ function captchaValidate(value) {
 }
 
 const mapStateToProps = (state) => ({
+    error: state.auth.error,
     captchaUrl: state.auth.captchaUrl,
     isAuth: state.auth.isAuth,
     loginSuccess: state.auth.loginSuccess
