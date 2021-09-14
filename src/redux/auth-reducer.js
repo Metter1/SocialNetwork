@@ -4,7 +4,6 @@ const SET_USER_DATA = 'SET_USER_DATA';
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS';
 const SET_ERROR = 'SET_ERROR'
-const GET_AUTH_USER_PHOTO = 'GET_AUTH_USER_PHOTO';
 let initialStore = {
     userID: null,
     email: null,
@@ -13,7 +12,6 @@ let initialStore = {
     loginSuccess: null,
     captchaUrl: null,
     error: null,
-    UserAuthPhoto: null,
 }
 const authReducer = (state = initialStore, action) => {
     switch (action.type) {
@@ -25,8 +23,7 @@ const authReducer = (state = initialStore, action) => {
             return { ...state, loginSuccess: action.loginSuccess }
         case GET_CAPTCHA_URL_SUCCESS:
             return { ...state, ...action.payload }
-        case GET_AUTH_USER_PHOTO:
-            return { ...state, UserAuthPhoto: action.photo }
+
         default:
             return state
     }
@@ -35,9 +32,6 @@ export const setError = (error) => ({ type: SET_ERROR, payload: { error } })
 export const setAuthUserData = (email, userID, login, isAuth) => ({ type: SET_USER_DATA, data: { email, userID, login, isAuth } })
 export const setloginSuccess = (loginSuccess) => ({ type: LOGIN_SUCCESS, loginSuccess })
 export const getCaptchaUrlSuccess = (captchaUrl) => ({ type: GET_CAPTCHA_URL_SUCCESS, payload: { captchaUrl } })
-export const setAuthUserPhoto = (photo) => ({ type: GET_AUTH_USER_PHOTO, photo })
-
-
 
 
 export const getAuthUserData = () => async (dispatch) => {

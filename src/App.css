@@ -1,6 +1,8 @@
 body {
   font-size: 16px;
-  line-height: 28px;
+  line-height: 27px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   background-color: rgb(245, 245, 245);
 }
 
@@ -59,7 +61,7 @@ a {
 }
 
 .container{
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 15px;
   display: flex;
@@ -67,5 +69,10 @@ a {
 
 :root{
   --color-primary: #fff;
-  --color-title: rgb(26,17,16)
+  --color-title: rgb(26,17,16);
+  --color-hover: rgba(57, 97, 136, 0.1);
+  --color-input: rgba(57, 97, 136, 0.03);
+  --color-alpha: rgba(111, 112, 112, 0.479);
+  --color-separator: rgba(31, 31, 31, 0.1);
+  --color-line: rgb(220,225,230);
 }

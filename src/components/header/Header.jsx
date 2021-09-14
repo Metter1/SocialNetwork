@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './header.module.css'
 import logo from '../../assets/images/logo.svg'
+import menu from '../../assets/images/menu.svg'
 
-
-export default function Header({profile, logout, isAuth, login, UserAuthPhoto}) {
+export default function Header({ profile, logout, isAuth, login, UserAuthPhoto, UserAuthName, menuActive, setMenuActive }) {
     return (
         <div className={s.head}>
             <div className="container">
@@ -12,11 +12,21 @@ export default function Header({profile, logout, isAuth, login, UserAuthPhoto}) 
                     <h2 className={s.title}>Social</h2>
                 </div>
                 <div className={s.loginBlock}>
-                    {isAuth && <div><span className={s.link}>{login}</span>
-                            <button className={s.login_button} onClick={logout}>Выйти</button>
-                          </div>
+                    {isAuth && <div >
+                        <div className={s.profileRow}
+                            onClick={() => setMenuActive(!menuActive)}>
+                            <span className={s.link}>{login}</span>
+                            <img className={s.profileImg} src={UserAuthPhoto} alt={UserAuthName} />
+                            <img className={s.menuImg} src={menu} alt="menu" />
+                        </div>
+                        <div className={s.menuBlock}>
+                            <div className={menuActive ? `${s.menu} ${s.active}` : `${s.menu}`}>
+                                <p className={s.login_button} autoFocus={true} onBlur={() => setMenuActive(false)}
+                            tabIndex="1" onClick={()=>{ logout(); setMenuActive(false)}}>Выйти</p>
+                            </div>
+                        </div>
+                    </div>
                     }
-                    <img src={UserAuthPhoto} alt="" />
                 </div>
             </div>
         </div>

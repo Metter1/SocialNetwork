@@ -71,7 +71,7 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-    background:  rgba(31, 31, 31, 0.061);
+    background:  var(--color-line);
 }
 .likes{
     color: black;

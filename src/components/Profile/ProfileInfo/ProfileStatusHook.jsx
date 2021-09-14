@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import s from '../profile.module.css'
 
 const ProfileStatusFunc = (props) => {
     let [editMode, setEditMode] = useState(false)
     let [status, setStatus] = useState(props.status)
-
 
     useEffect(() => {
         setStatus(props.status)
@@ -14,8 +14,6 @@ const ProfileStatusFunc = (props) => {
     //         cleanup
     //     }
     // }, [input])
-
-
     let deactivateEditMode = () => {
         setEditMode(false)
         props.updateStatus(status)
@@ -29,19 +27,18 @@ const ProfileStatusFunc = (props) => {
         setStatus(e.currentTarget.value)
     }
 
-
     return (
         <div>
             <div >
 
                 {!editMode &&
-                    <span onClick={activateEditMode}>{props.status || '---------'}</span>
+                    <p className={s.status} onClick={activateEditMode}>{props.status || 'Установить статус'}</p>
                 }
 
             </div>
             <div>
                 {editMode &&
-                    <input autoFocus={true} onBlur={deactivateEditMode}
+                    <input className={s.status_active} autoFocus={true} onBlur={deactivateEditMode}
                         onChange={onStatusChange} value={status} />
                 }
             </div>

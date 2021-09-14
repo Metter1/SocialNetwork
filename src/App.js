@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter, Switch } from 'react-router-dom';
 import Sidebar from './components/sidebar/Sidebar.jsx';
 import NewsData from './components/News/NewsData';
 import MessengerContainer from './components/Messenger/MessengerContainer.jsx';
@@ -30,7 +30,8 @@ class App extends Component {
                 <HeaderContainer />
                 <div className='container'>
                     <Sidebar />
-                    <Route path='/Profile/:userID?' render={() => <ProfileContainer />} />
+                    <Switch>
+                    <Route  path='/Profile/:userID?' render={() => <ProfileContainer />} />
 
                     <Route path='/News' render={() => <NewsData />} />
 
@@ -40,6 +41,11 @@ class App extends Component {
 
                     <Route path='/Login' render={() => <Login />} />
 
+                    <Route exact path='/' render={()=> <ProfileContainer />} />
+
+                    <Route path='*' render={()=> <div>404</div> }/>
+
+                    </Switch>
                 </div>
             </div >
         );

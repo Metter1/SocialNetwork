@@ -2,7 +2,7 @@
     border-radius: 20px;
     height: 350px;
     width: 150px;
-    margin-right: 15px;
+    margin-right: 5px;
 
 }
 .list img{
@@ -15,13 +15,12 @@
 }
 .list{
     font-size: 14px;
-    margin-left: 5px;
     list-style-type: none;
     display: flex;
     align-items: center;
 }
 .list:hover{
-    background-color: rgba(133, 133, 133, 0.1);
+    background-color: var(--color-hover);
 }
 .menu a{
     color: black;

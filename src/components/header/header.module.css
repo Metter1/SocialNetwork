@@ -1,43 +1,101 @@
 .head {
     width: 100%;
-    height: 35px;
     box-shadow: 0px 1px 40px rgba(51, 51, 51, 0.1);
-    /* background-color: rgb(24, 24, 24); */
     margin-bottom: 10px;
     background-color: #Fdfcfa;
 }
 .row{
+    height: 35px;
     display: flex;
     justify-content:space-between;
     align-items: center;
+
 }
 .title{
     font-size: 16px;
     color: var(--color-title);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .logo{
     width: 30px;
-    height: 20px;
+    height: 25px;
     background-color: transparent;
     margin-right: 4px;
 }
 
 .loginBlock{
-    justify-self: right;
     margin-left: auto;
-    align-self: center;
 }
 .link{
     color: var(--color-title);
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 6px;
 }
-
+ul{
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style-type: none;
+}
 .login_button{
+    font-family: 'Montserrat', sans-serif;
     background-color: transparent;
     cursor: pointer;
     border: none;
     font-size: 12px;
     color: var(--color-title);
-    text-decoration:underline;
-}   
+    padding: 2px 10px;
+}
 
+.login_button:hover{
+    background-color: var(--color-hover);
+}
+
+.profileRow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+}
+
+.profileRow:hover{
+    background-color: var(--color-hover);
+    cursor: pointer;
+}
+
+.profileImg{
+    margin-top: 3px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 0;
+}
+
+.menuImg{
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.menu{
+    position: absolute;
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--color-primary);
+    box-shadow: 0 1px 3px var(--color-alpha);
+    border-radius: 4px;
+    border: 1px solid var(--color-separator);
+}
+.active{
+    visibility: visible;
+}
+
+.menuBlock{
+    flex-direction: row-reverse;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+}
