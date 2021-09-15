@@ -13,9 +13,8 @@
 .avatar{
     width: 168px;
     height: 168px;
-    background-color: rgb(212, 212, 212);
     margin: 1rem;
-    border-radius: 3px;
+    background: transparent;
 }
 
 .block_info{
@@ -28,6 +27,8 @@
 .title{
     margin: 1rem;
     position: relative;
+    font-size: 19px;
+    color: var(--color-title);
 }
 .form{
     border-radius: 10px;
@@ -37,11 +38,6 @@
 .active{
     border: 10px solid yellow
 }
-
-.link{
-    display: flex;
-}
-
 
 .aboutMe_blog{
     display: flex;
@@ -58,14 +54,14 @@
     content: '';
     position: absolute;
     width: auto;
-    height: 1px;
+    height: 0.5px;
     bottom: -2px;
     left: 0;
     right: 0;
     background: var(--color-line);
 }
 
-.status{
+.status_owner{
     font-weight: 300;
     font-size: 13px;
     line-height: 18px;
@@ -75,7 +71,15 @@
     margin-bottom: 10px;
 }
 
-.status:hover{
+.status{
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 18px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.status_onwer:hover{
     background-color: var(--color-hover);
 }
 
@@ -95,16 +99,17 @@
     border-radius: 0;
 }
 
+.profile_title_item{
+    margin-top: 16px;
+    font-weight: 300;
+}
+
 .profile_title_item1{
     margin-top: 16px;
     font-weight: 300;
     position: relative;
 }
 
-.profile_title_item{
-    margin-top: 16px;
-    font-weight: 300;
-}
 
 .profile_title_item3{
     margin-top: 16px;
@@ -117,7 +122,7 @@
     position: absolute;
     width: auto;
     height: 0.5px;
-    left: 47px;
+    left: 48px;
     right: 0; 
     top: 50%;
     background: var(--color-line);
@@ -137,6 +142,7 @@
     font-weight: 300;
     font-size: 14px;
     line-height: 25px;
+    margin-bottom: 20px;
 }
 
 .profile_title{
@@ -147,12 +153,99 @@
 .blog_more{
     font-size: 13px;
     width: 100%;
-    padding-left: 174px;
     cursor: pointer;
     border-radius: 3px;
     transition: ease 0.1s;
+    padding: 6px 0px;
+    padding-left: 174px;
+    color: var(--color-link);
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;  
 }
 
 .blog_more:hover{
     background: var(--color-hover);
+}
+
+.blog_contact{
+    display: none;
+}
+
+.blog_contact_show{
+    display: block;
+}
+
+.name_row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.editBtn{
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: ease 0.2s;
+}
+.editBtn:hover{
+    text-decoration: underline;
+    color: var(--color-link);
+}
+
+.profile_icon{
+    width: 20px;
+    height: 20px;
+    align-self: center;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.contact_item{
+    margin-left: 1rem;
+    display: flex;
+    text-align: center;
+}
+
+.link{
+    margin: 8px 0 5px 10px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 300;
+    
+}
+.link_text{
+    margin: 5px 0 5px 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.photo_input{
+    display: block;
+    padding: 6px 0;
+    cursor: pointer;
+    width: 87%;
+    margin: 30px auto 0;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 4px;
+    background-color: var(--color-primary);
+    box-shadow: 0 1px 3px var(--color-alpha);
+    border: 1px solid var(--color-separator);
+    transition: ease 0.1s;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;  
+}
+
+.photo_input:hover{
+    background: var(--color-hover);
+}
+
+.blog_edit{
+    background: red;
 }

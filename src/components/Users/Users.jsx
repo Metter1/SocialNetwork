@@ -14,7 +14,7 @@ export default function Users(props) {
 
     return (
         <div >
-            <Paginator totalUsersCount={props.totalUsersCount} pageSize={props.pageSize}currentPage={props.currentPage} onPageChanged={props.onPageChanged} />
+            <Paginator totalUsersCount={props.totalUsersCount} pageSize={props.pageSize} currentPage={props.currentPage} onPageChanged={props.onPageChanged} />
             <div className={s.users}>
                 {
                     props.users.map(u => {
@@ -24,13 +24,18 @@ export default function Users(props) {
                                     <img src={u.photos.small != null ? u.photos.small : 'https://www.svgrepo.com/show/213315/avatar-profile.svg'}
                                         alt="photo" className={s.photo} />
                                 </NavLink>
-                                <h4 className={s.user__name}>{u.name}</h4>
+                                <div className={s.block}>
+                                    <NavLink to={'/Profile/' + u.id}>
+                                        <span className={s.user__name}>{u.name}</span>
+                                    </NavLink>
+                                    <span className={`${s.user__name} ${s.user__status}`}>{u.status}</span>
+                                </div>
                                 {u.followed ?
                                     <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                        onClick={() => { props.unfollow(u.id) }} className={s.btn}>followed</button> :
+                                        onClick={() => { props.unfollow(u.id) }} className={s.btn_unfollow}>unfollow</button> :
 
                                     <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                        onClick={() => { props.follow(u.id) }} className={s.btn}>unfollowed</button>}
+                                        onClick={() => { props.follow(u.id) }} className={s.btn_follow}>follow</button>}
 
                             </div>
                         )

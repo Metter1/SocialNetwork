@@ -16,9 +16,9 @@ class ProfileContainer extends React.Component {
             if (!userID) {
                 this.props.history.push("/login")
             }
-            m = "AUTH" 
+            m = "AUTH"
         }
-        
+
         this.props.getUserProfile(userID, m);
         this.props.getUserStatus(userID);
     }
@@ -27,28 +27,39 @@ class ProfileContainer extends React.Component {
         this.refreshProfile()
     }
 
-    componentDidUpdate(prevProps){
-        if(this.props.match.params.userID !== prevProps.match.params.userID){
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.userID !== prevProps.match.params.userID) {
 
             this.refreshProfile()
         }
     }
 
     //profile more info
-    constructor(props) {
-        super(props);
-        this.state = {
-          count: 0
-        };
-      }
-    
+    state = {
+        More: true,
+    }
+
+    activateMore() {
+        this.setState({
+            More: true
+        })
+    }
+
+    deactiveMore() {
+        this.setState({
+            More: false
+        })
+    }
+
 
     render() {
         return (
             <div >
                 <Profile {...this.props} profile={this.props.profile} isOwner={!this.props.match.params.userID}
-                savePhoto={this.props.savePhoto} saveProfile={this.props.saveProfile}
-                status={this.props.status} updateStatus={this.props.updateUserStatus}  />
+                    savePhoto={this.props.savePhoto} saveProfile={this.props.saveProfile}
+                    status={this.props.status} updateStatus={this.props.updateUserStatus}
+                    activeMore={this.activateMore.bind(this)} deactiveMore={this.deactiveMore.bind(this)}
+                    More={this.state.More} />
             </div >
         )
     }

@@ -75,4 +75,6 @@ a {
   --color-alpha: rgba(111, 112, 112, 0.479);
   --color-separator: rgba(31, 31, 31, 0.1);
   --color-line: rgb(220,225,230);
+  --color-link: rgb(89, 134, 185);
+  --color-btn: rgb(209,229,245);
 }

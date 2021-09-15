@@ -26,20 +26,23 @@ const ProfileStatusFunc = (props) => {
     let onStatusChange = (e) => {
         setStatus(e.currentTarget.value)
     }
+    let handleSelect = (e) => {
+        e.target.select();
+    }
 
     return (
         <div>
             <div >
 
                 {!editMode &&
-                    <p className={s.status} onClick={activateEditMode}>{props.status || 'Установить статус'}</p>
+                    <p className={s.status_owner} onClick={activateEditMode}>{props.status || 'Установить статус'}</p>
                 }
 
             </div>
             <div>
                 {editMode &&
-                    <input className={s.status_active} autoFocus={true} onBlur={deactivateEditMode}
-                        onChange={onStatusChange} value={status} />
+                    <input type='text' className={s.status_active} onFocus={(e) => handleSelect(e)} autoFocus={true} onBlur={deactivateEditMode}
+                        onChange={(e) => onStatusChange(e)} value={status} />
                 }
             </div>
         </div>

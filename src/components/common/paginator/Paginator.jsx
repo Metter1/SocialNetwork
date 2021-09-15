@@ -26,8 +26,8 @@ export default function Paginator({ totalUsersCount, pageSize, currentPage, onPa
             {
                 pages.filter(p => (p >= leftPortionPageNumber && p <= rightPotrionPageNumber))
                     .map(p => {
-                        return <span className={ cn({[s.pageActive]: currentPage=== p}, s.page)} 
-                        key={p} onClick={(e) => { onPageChanged(p) }}>
+                        return <span className={cn({ [s.pageActive]: currentPage === p }, s.page)}
+                            key={p} onClick={(e) => { onPageChanged(p) }}>
                             {p}
                         </span>
                     })

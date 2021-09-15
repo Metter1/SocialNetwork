@@ -26,5 +26,5 @@
     color: black;
 }
 a.active{
-    color: rgb(89, 134, 185);
+    color: var(--color-link);
 }

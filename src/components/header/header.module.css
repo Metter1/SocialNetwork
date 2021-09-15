@@ -50,6 +50,7 @@ li {
 }
 
 .login_button:hover{
+    border-radius: 3px;
     background-color: var(--color-hover);
 }
 
@@ -58,11 +59,17 @@ li {
     justify-content: space-between;
     align-items: center;
     height: 35px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none; 
+
 }
 
 .profileRow:hover{
     background-color: var(--color-hover);
     cursor: pointer;
+    border-radius: 3px;
+
 }
 
 .profileImg{
@@ -82,15 +89,16 @@ li {
 
 .menu{
     position: absolute;
-    visibility: hidden;
+    display: none;
     width: 200px;
     background-color: var(--color-primary);
-    box-shadow: 0 1px 3px var(--color-alpha);
     border-radius: 4px;
     border: 1px solid var(--color-separator);
+    box-shadow: 0 1px 3px var(--color-alpha);
+    z-index: 1;
 }
 .active{
-    visibility: visible;
+    display: block;
 }
 
 .menuBlock{

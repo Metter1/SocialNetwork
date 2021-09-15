@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, withRouter, Switch } from 'react-router-dom';
+import { Route, withRouter, Switch, Redirect } from 'react-router-dom';
 import Sidebar from './components/sidebar/Sidebar.jsx';
 import NewsData from './components/News/NewsData';
 import MessengerContainer from './components/Messenger/MessengerContainer.jsx';
@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './components/common/Preloader/Preloader';
 import { initializeApp } from './redux/app-reducer';
+import ProfileDataFormContainer from './components/Profile/ProfileInfo/ProfileDataFormContainer';
 
 
 class App extends Component {
@@ -22,28 +23,44 @@ class App extends Component {
     }
 
     render() {
-        if (!this.props.initialized ) {
+        if (!this.props.initialized) {
             return <Preloader />
         }
         return (
             <div>
+
                 <HeaderContainer />
+
                 <div className='container'>
-                    <Sidebar />
+                    
                     <Switch>
-                    <Route  path='/Profile/:userID?' render={() => <ProfileContainer />} />
 
-                    <Route path='/News' render={() => <NewsData />} />
+                    <Route path='/profile/:userID?'>
+                    <Sidebar />
+                    <ProfileContainer />
 
-                    <Route path='/Messages' render={() => <MessengerContainer />} />
+                    </Route>
 
-                    <Route path='/Users' render={() => <UsersContainer />} />
+                        <Route path='/profile/:userID?' render={() => <ProfileContainer />} />
 
-                    <Route path='/Login' render={() => <Login />} />
+                        <Route path='/news'>
+                        <Sidebar />
+                        <NewsData />
+                        </Route>
 
-                    <Route exact path='/' render={()=> <ProfileContainer />} />
+                        <Route path='/messages' render={() => <MessengerContainer />} />
 
-                    <Route path='*' render={()=> <div>404</div> }/>
+                        <Route path='/users' render={() => <UsersContainer />} />
+
+                        <Route path='/login' render={() => <Login />} />
+
+                        <Route path='/edit' render={() => <ProfileDataFormContainer />} />
+
+                        <Route exact path='/' render={() => <Redirect to="/profile" />} />
+
+                        <Route path='*' render={() => <div>404</div>} />
+
+
 
                     </Switch>
                 </div>
@@ -51,6 +68,8 @@ class App extends Component {
         );
     }
 }
+
+
 const mapStateToProps = (state) => ({
     initialized: state.app.initialized,
     isAuth: state.auth.isAuth

@@ -35,19 +35,26 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
         >
             {({ errors, touched, isValidating }) => (
                 <Form>
-                    <Field min="3" type="text" as={'textarea'} name="aboutMe" className={`${s.form_textarea} ${s.form}`} validate={validate} />
-                    {errors.aboutMe && touched.aboutMe && <div>{errors.aboutMe}</div>}
-                    <Field type="text" as={'textarea'} name="lookingForAJobDescription" className={`${s.form_textarea} ${s.form}`} validate={validate} />
-                    {errors.lookingForAJobDescription && touched.lookingForAJobDescription && <div>{errors.lookingForAJobDescription}</div>}
-                    <Field type="text" name="fullName" validate={validate} className={s.form} />
-                    {errors.fullName && touched.fullName && <div>{errors.fullName}</div>}
-                    <b>
-                        lookingForAJob
-                        <Field type="checkbox" name="lookingForAJob" />
-                    </b>
+                    <div className={s.blog_edit}>
+                            <Field type="text" name="fullName" validate={validate} className={`${s.profile_title} ${s.profile_title_field}`} />
+                            {errors.fullName && touched.fullName && <div>{errors.fullName}</div>}
+
+                            <Field min="3" type="text" as={'textarea'} name="aboutMe" className={`${s.form_textarea} ${s.profile_text}`} validate={validate} />
+                            {errors.aboutMe && touched.aboutMe && <div>{errors.aboutMe}</div>}
+
+
+                            <b>
+                                lookingForAJob
+                                <Field type="checkbox" name="lookingForAJob" />
+                            </b>
+
+
+                            <Field type="text" as={'textarea'} name="lookingForAJobDescription" className={`${s.form_textarea} ${s.form}`} validate={validate} />
+                            {errors.lookingForAJobDescription && touched.lookingForAJobDescription && <div>{errors.lookingForAJobDescription}</div>}
+
+                    </div>
                     Contacts
                     {Object.keys(profile.contacts).map(key => {
-                        debugger
                         return <div key={key} className={s.contacts}>
                             {key}:
                             <Field type="text" name={`contacts.` + key} />
@@ -61,12 +68,33 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
     </div>
 }
 
+{/* <div className={s.block_info}>
+    <div className={s.aboutMe_blog}>
+        
+        <div className={s.blog_item}>
+            <p className={s.profile_title_item1}>О себе</p>
+            <p className={s.profile_text}>{profile.aboutMe}</p>
+        </div>
+
+        <div className={s.blog_item}>
+            <p className={s.profile_title_item}>В поисках работы: {profile.lookingForAJob ? 'да' : 'нет'} </p>
+
+        </div>
+
+        <div className={s.blog_item}>
+            <p className={s.profile_title_item3}>Описание</p>
+            <p className={s.profile_text}>{profile.lookingForAJobDescription}</p>
+        </div>
+    </div>
+</div> */}
+
+
 
 
 function validURL(str) {
     var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+        '((\\d{1, 3}\\.){3}\\d{1, 3}))' + // OR ip (v4) address
         '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
         '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
