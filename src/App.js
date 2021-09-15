@@ -13,7 +13,6 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './components/common/Preloader/Preloader';
 import { initializeApp } from './redux/app-reducer';
-import ProfileDataFormContainer from './components/Profile/ProfileInfo/ProfileDataFormContainer';
 
 
 class App extends Component {
@@ -32,29 +31,17 @@ class App extends Component {
                 <HeaderContainer />
 
                 <div className='container'>
-                    
-                    <Switch>
-
-                    <Route path='/profile/:userID?'>
                     <Sidebar />
-                    <ProfileContainer />
-
-                    </Route>
-
+                    <Switch>
                         <Route path='/profile/:userID?' render={() => <ProfileContainer />} />
 
-                        <Route path='/news'>
-                        <Sidebar />
-                        <NewsData />
-                        </Route>
+                        <Route path='/news' render={() => <NewsData />} />
 
                         <Route path='/messages' render={() => <MessengerContainer />} />
 
                         <Route path='/users' render={() => <UsersContainer />} />
 
                         <Route path='/login' render={() => <Login />} />
-
-                        <Route path='/edit' render={() => <ProfileDataFormContainer />} />
 
                         <Route exact path='/' render={() => <Redirect to="/profile" />} />
 

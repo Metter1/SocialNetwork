@@ -77,4 +77,7 @@ a {
   --color-line: rgb(220,225,230);
   --color-link: rgb(89, 134, 185);
   --color-btn: rgb(209,229,245);
+  --field-border: #d3d9de;
+  --field-title: #656565;
+  --field-error: rgb(255, 73, 73);
 }

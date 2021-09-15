@@ -4,6 +4,7 @@ import { Form, Formik, Field } from 'formik';
 
 
 export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
+
     return <div className={s.block_info}>
         <Formik
             initialValues={{
@@ -24,6 +25,7 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
             }}
             onSubmit={(data) => {
                 console.log(data)
+
                 saveProfile(data).then(
                     () => {
                         setEditMode(false)
@@ -33,80 +35,93 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
                 })
             }}
         >
-            {({ errors, touched, isValidating }) => (
+            {() => (
                 <Form>
-                    <div className={s.blog_edit}>
-                            <Field type="text" name="fullName" validate={validate} className={`${s.profile_title} ${s.profile_title_field}`} />
-                            {errors.fullName && touched.fullName && <div>{errors.fullName}</div>}
-
-                            <Field min="3" type="text" as={'textarea'} name="aboutMe" className={`${s.form_textarea} ${s.profile_text}`} validate={validate} />
-                            {errors.aboutMe && touched.aboutMe && <div>{errors.aboutMe}</div>}
-
-
-                            <b>
-                                lookingForAJob
-                                <Field type="checkbox" name="lookingForAJob" />
-                            </b>
-
-
-                            <Field type="text" as={'textarea'} name="lookingForAJobDescription" className={`${s.form_textarea} ${s.form}`} validate={validate} />
-                            {errors.lookingForAJobDescription && touched.lookingForAJobDescription && <div>{errors.lookingForAJobDescription}</div>}
-
+                    <div className={s.field_blog}>
+                        <span className={s.field_text}>Имя:</span>
+                        <Field type="text" name="fullName" validate={validate} className={`${s.profile_title} ${s.profile_title_field}`}>
+                            {
+                                ({
+                                    field,
+                                    meta: { touched, error }
+                                }) => <input autocomplete="off" className={touched && error ? `${s.profile_title} ${s.profile_title_field} ${s.error}`
+                                    : `${s.profile_title} ${s.profile_title_field}`} {...field} />
+                            }
+                        </Field>
                     </div>
-                    Contacts
+
+                    <div className={s.field_blog}>
+                        <span className={s.field_text}>О себе:</span>
+                        <Field type="text" name="aboutMe" validate={validate}>
+                            {
+                                ({
+                                    field,
+                                    meta: { touched, error }
+                                }) => <textarea  className={touched && error ? `${s.form_textarea} ${s.profile_title_field} ${s.error}`
+                                    : `${s.form_textarea} ${s.profile_title_field}`} {...field} />
+                            }
+                        </Field>
+                    </div>
+
+                    <div className={s.field_blog}>
+                        <span className={s.field_text}>Описание:</span>
+                        <Field type="text" name="lookingForAJobDescription" validate={validate}>
+                            {
+                                ({
+                                    field,
+                                    meta: { touched, error }
+                                }) => <textarea className={touched && error ? `${s.form_textarea} ${s.profile_title_field} ${s.error}`
+                                    : `${s.form_textarea} ${s.profile_title_field}`} {...field} />
+                            }
+                        </Field>
+                    </div>
+
+                    <div className={s.field_blog}>
+                        <span className={s.field_text}>
+                            В поисках работы:
+                        </span>
+                        <Field type="checkbox" name="lookingForAJob" />
+                    </div>
+
+
+                    <div className={s.field_line}>
+                        <span className={s.field_title}>Contacts:</span>
+                    </div>
                     {Object.keys(profile.contacts).map(key => {
-                        return <div key={key} className={s.contacts}>
-                            {key}:
-                            <Field type="text" name={`contacts.` + key} />
+                        return <div key={key} className={s.field_blog}>
+                            <span className={s.field_text}>{key}:</span>
+                            <Field type="text" name={`contacts.` + key} validate={validURL}>
+                            {
+                                ({
+                                    field,
+                                    meta: { touched, error }
+                                }) => <input autocomplete="off" key={key} className={touched && error ? `${s.profile_title_field} ${s.error}`
+                                    : `${s.profile_title_field}`} {...field} />
+                            }
+                            </Field>
                         </div>
 
                     })}
-                    <button type="submit"></button>
+                    <button className={s.form_btn} type="submit">Сохранить</button>
                 </Form>
             )}
         </Formik>
     </div>
 }
 
-{/* <div className={s.block_info}>
-    <div className={s.aboutMe_blog}>
-        
-        <div className={s.blog_item}>
-            <p className={s.profile_title_item1}>О себе</p>
-            <p className={s.profile_text}>{profile.aboutMe}</p>
-        </div>
-
-        <div className={s.blog_item}>
-            <p className={s.profile_title_item}>В поисках работы: {profile.lookingForAJob ? 'да' : 'нет'} </p>
-
-        </div>
-
-        <div className={s.blog_item}>
-            <p className={s.profile_title_item3}>Описание</p>
-            <p className={s.profile_text}>{profile.lookingForAJobDescription}</p>
-        </div>
-    </div>
-</div> */}
-
-
-
-
-function validURL(str) {
-    var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-        '((\\d{1, 3}\\.){3}\\d{1, 3}))' + // OR ip (v4) address
-        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-        '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
-    return !!pattern.test(str);
+function validURL(inputURL) {
+    let error;
+    let reg = /https?:\/\/w{0,3}\w*?\.(\w*?\.)?\w{2,3}\S*|www\.(\w*?\.)?\w*?\.\w{2,3}\S*|(\w*?\.)?\w*?\.\w{2,3}[\/\?]\S*/
+    if (!(reg.test(inputURL)|| inputURL.length === 0)) {
+    error = 'error'
+    }
+    return error;
 }
 
 function validate(value) {
     let error;
-    if (!value) {
-        error = 'Required';
-    } else if (value.length < 3) {
-        error = 'Invalid';
+    if (value.length < 1) {
+        error = 'error';
     }
     return error;
 }

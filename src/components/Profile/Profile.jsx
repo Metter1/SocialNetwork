@@ -38,7 +38,7 @@ export default function Profile({ profile, savePhoto, isOwner, saveProfile, stat
                 : <ProfileData profile={profile} isOwner={isOwner}
                     status={status} updateStatus={updateStatus}
                     activeMore={activeMore} deactiveMore={deactiveMore} More={More}
-                    goToEditMode={() => { setEditMode(true) }} />}
+                    goToEditMode={() => { setEditMode(true) }}/>}
         </div>
     )
 
@@ -98,7 +98,7 @@ const Contact = ({ contactTitle, contactValue }) => {
     }
     return (<div className={s.contact_item}>
         {!contactIcons.contactTitle ? <img className={s.profile_icon} src={contactIcons[contactTitle]} alt={contactTitle} /> : null}
-        <span className={s.link_text}>{contactTitle}</span>
+        <span className={s.link_text}>{contactTitle}:</span>
         <a className={s.link} href={contactValue} target="_blank">{contactValue}</a>
     </div>)
 }

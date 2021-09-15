@@ -209,11 +209,11 @@
 }
 
 .link{
-    margin: 8px 0 5px 10px;
+    margin: 7px 0 0px 10px;
     font-size: 14px;
     line-height: 24px;
     font-weight: 300;
-    
+    cursor: pointer;
 }
 .link_text{
     margin: 5px 0 5px 10px;
@@ -248,4 +248,89 @@ input[type="file"] {
 
 .blog_edit{
     background: red;
+}
+
+.field_blog{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 1rem;
+    width: 100%;
+    text-align: right;
+}
+
+.field_text{
+    margin-top: 4px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-right: 10px;
+    color: var(--field-title);
+}
+
+.profile_title_field{
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    width: 300px;
+    border-radius: 3px;
+    padding: 5px 9px 7px 9px;
+    border: 0.5px solid var(--field-border);
+    outline: none;
+}
+
+.form_textarea{
+    height: 75px;
+    resize: none;
+}
+
+.field_title{
+    margin: 1rem;
+    font-weight: 400;
+    color: var(--field-title);
+}
+
+.field_line{
+    margin-top: 40px;
+    position: relative;
+}
+
+.field_line::before{
+    content: '';
+    position: absolute;
+    width: 85%;
+    height: 0.5px;
+    top: -10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: var(--color-line);
+}
+
+.form_btn{
+    display: block;
+    width: 125px;
+    height: 30px;
+    border-radius: 3px;
+    margin: 0 auto 15px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 4px;
+    transition: ease 0.1s;
+    cursor: pointer;
+    background-color: var(--color-primary);
+    box-shadow: 0 1px 3px var(--color-alpha);
+    border: 1px solid var(--color-separator);
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none; 
+}
+
+.form_btn:hover{
+    background: var(--color-hover);
+}
+
+.error{
+    border: 1px solid var(--field-error);
+    border-radius: 4px;
 }
