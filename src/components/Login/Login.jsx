@@ -3,7 +3,7 @@ import { Form, Formik, Field } from 'formik';
 import { connect } from 'react-redux';
 import { login } from '../../redux/auth-reducer';
 import { Redirect } from 'react-router-dom';
-
+import s from './login.module.css'
 
 const Login = (props) => {
     if (props.isAuth) {
@@ -12,10 +12,7 @@ const Login = (props) => {
 
     return (
         <div>
-            <div>
-                <h2>LOGIN PLS</h2>
-            </div>
-            <LoginForm login={props.login} captchaUrl={props.captchaUrl} error={props.error}/>
+            <LoginForm login={props.login} captchaUrl={props.captchaUrl} error={props.error} />
             {props.loginSuccess && <Error />}
         </div>
     )
@@ -26,30 +23,67 @@ const LoginForm = (props) => {
         <Formik
             initialValues={{ email: '', password: '', remember: '' }}
             onSubmit={(data, actions) => {
-                props.login(data.email, data.password, data.remember, data.captcha).then().catch(e =>{
-                    
+                props.login(data.email, data.password, data.remember, data.captcha).then().catch(e => {
                 })
 
             }}
 
         >
             {
-                ({ errors, touched, isValidating }) => (
+                () => (
                     <Form>
-                        {props.error && <div>{props.error}</div>}
-                        <Field type="text" name="email" />
-                        <Field type="password" name="password" />
-                        <Field type="checkbox" name="remember" />
-                        {props.captchaUrl && <img src={props.captchaUrl} />}
-                        {props.captchaUrl && <Field type="text" name="captcha" validate={captchaValidate}/>}
-                        {errors.captcha && touched.captcha ? <div>{errors.captcha}</div> : ''}
-                        <button type="submit"></button>
+                        <div className={s.parent}>
+                            <div className={s.content}>
+                                <div className={s.items}>
+                                    <h1 className={s.title}>Вход</h1>
+                                    {props.error ? <div className={s.error_text}>{props.error}</div> : <div className={s.error_help}>test</div>}
+                                    <Field type="text" name="email" validate={validate}>
+                                        {
+                                            ({
+                                                field,
+                                                meta: { touched, error }
+                                            }) => <input type="text" placeholder='Введите email' className={touched && error ? `${s.form_input} ${s.error}`
+                                                : `${s.form_title} ${s.form_input}`} {...field} />
+                                        }
+                                    </Field>
+                                    <Field type="password" name="password" validate={validate}>
+                                        {
+                                            ({
+                                                field,
+                                                meta: { touched, error }
+                                            }) => 
+                                                    <input type="password" placeholder='Введите пароль' className={touched && error ? `${s.form_input} ${s.error}`
+                                                        : `${s.form_title} ${s.form_input}`} {...field} />
+                                                
+                                        }
+                                    </Field>
+                                    <div className={s.checkbox_item}>
+                                        <span className={s.checkbox_text}>Запомнить меня</span>
+                                        <Field type="checkbox" name="remember" />
+                                    </div>
+                                </div>
+
+                                <button type="submit" className={s.button}>Войти</button>
+                                {props.captchaUrl && <img className={s.img} src={props.captchaUrl} alt='captcha' />}
+                                {props.captchaUrl && <Field autocomplete='off' className={s.captcha} type="text" name="captcha" validate={captchaValidate} />}
+                            </div>
+                        </div>
+
                     </Form>
 
                 )}
         </Formik>
     )
 }
+
+function validate(value) {
+    let error;
+    if (value.length < 1) {
+        error = 'error';
+    }
+    return error;
+}
+
 const Error = () => {
     return (
         <div>
@@ -60,7 +94,7 @@ const Error = () => {
 
 function captchaValidate(value) {
     let error
-    if(!value){
+    if (!value) {
         error = 'required'
     }
     return error;

@@ -31,7 +31,6 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
                         setEditMode(false)
                     }
                 ).catch(e => {
-                    console.log(e)
                 })
             }}
         >
@@ -39,12 +38,12 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
                 <Form>
                     <div className={s.field_blog}>
                         <span className={s.field_text}>Имя:</span>
-                        <Field type="text" name="fullName" validate={validate} className={`${s.profile_title} ${s.profile_title_field}`}>
+                        <Field type="text" name="fullName" validate={validate}>
                             {
                                 ({
                                     field,
                                     meta: { touched, error }
-                                }) => <input autocomplete="off" className={touched && error ? `${s.profile_title} ${s.profile_title_field} ${s.error}`
+                                }) => <input type="text" autocomplete="off" className={touched && error ? `${s.profile_title} ${s.profile_title_field} ${s.error}`
                                     : `${s.profile_title} ${s.profile_title_field}`} {...field} />
                             }
                         </Field>
@@ -57,7 +56,7 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
                                 ({
                                     field,
                                     meta: { touched, error }
-                                }) => <textarea  className={touched && error ? `${s.form_textarea} ${s.profile_title_field} ${s.error}`
+                                }) => <textarea type="text" className={touched && error ? `${s.form_textarea} ${s.profile_title_field} ${s.error}`
                                     : `${s.form_textarea} ${s.profile_title_field}`} {...field} />
                             }
                         </Field>
@@ -70,7 +69,7 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
                                 ({
                                     field,
                                     meta: { touched, error }
-                                }) => <textarea className={touched && error ? `${s.form_textarea} ${s.profile_title_field} ${s.error}`
+                                }) => <textarea type="text" className={touched && error ? `${s.form_textarea} ${s.profile_title_field} ${s.error}`
                                     : `${s.form_textarea} ${s.profile_title_field}`} {...field} />
                             }
                         </Field>
@@ -95,7 +94,7 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
                                 ({
                                     field,
                                     meta: { touched, error }
-                                }) => <input autocomplete="off" key={key} className={touched && error ? `${s.profile_title_field} ${s.error}`
+                                }) => <input type="text" autocomplete="off" key={key} className={touched && error ? `${s.profile_title_field} ${s.error}`
                                     : `${s.profile_title_field}`} {...field} />
                             }
                             </Field>

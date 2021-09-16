@@ -1,0 +1,138 @@
+.parent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    background-color: #e4eee9;
+    background-image: linear-gradient(315deg, #e4eee9 0%, #93a5ce 74%);
+}
+
+.content {
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -225px 0 0 -225px;
+    background-color: var(--color-primary);
+    box-shadow: 0 4px 16px #ccc;
+    padding: 50px 100px 100px;
+    border-radius: 10px;
+}
+
+.items {
+    display: grid;
+}
+
+.title{
+    font-size: 45px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.form_input {
+    width: 250px;
+    padding: 0 0 10px 0;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid var(--color-line);
+    background-color: transparent;
+    outline: none;
+    transition: ease 0.25s;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 1px;
+}
+
+.form_input::placeholder {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 19px;
+    position: absolute;
+    top: 0;
+    color: var(--color-alpha);
+    transition: ease 0.25s;
+}
+.form_input:focus {
+    border-bottom: 1px solid #1a73a8;
+}
+
+.checkbox_item{
+    margin-bottom: 5px;
+}
+
+.checkbox_text {
+    letter-spacing: 1px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 23px;
+}
+
+
+.error_text {
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    position: relative;
+    color: var(--field-error);
+}
+
+
+.error_help {
+    margin-bottom: 10px;
+    visibility: hidden;
+}
+
+.error {
+    border-bottom: 1px solid var(--field-error);
+}
+
+.img {
+    margin: 0 auto;
+    width: 150px;
+    height: 50px;
+}
+
+.captcha {
+    width: 250px;
+    padding: 0 25px 2px;
+    border: none;
+    border-bottom: 1px solid var(--color-line);
+    background-color: transparent;
+    outline: none;
+    transition: ease 0.25s;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    display: block;
+    margin: 5px auto 20px;
+    width: 125px;
+}
+
+.captcha:focus {
+    border-bottom: 1px solid #1a73a8;
+}
+
+.button {
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    font-size: 14px;
+    line-height: 19px;
+    color: var(--color-primary);
+    background-color: var(--form-btn);
+    outline: none;
+    cursor: pointer;
+    transition: ease 0.25s;
+}
+
+
+.button:hover{
+    background-color: rgba(0, 113, 240, 0.7);
+}
