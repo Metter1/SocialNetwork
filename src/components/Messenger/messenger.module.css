@@ -18,7 +18,7 @@
     width: 1px;
     top: 0;
     right: 0;
-    background: black;
+    background: var(--color-line);
 }
 .users a:hover{
     background-color: rgba(133, 133, 133, 0.1);

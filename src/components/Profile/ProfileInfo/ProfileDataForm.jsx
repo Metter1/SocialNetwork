@@ -85,6 +85,7 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
 
                     <div className={s.field_line}>
                         <span className={s.field_title}>Contacts:</span>
+                        <span className={s.contact_example}>http://*.*</span>
                     </div>
                     {Object.keys(profile.contacts).map(key => {
                         return <div key={key} className={s.field_blog}>

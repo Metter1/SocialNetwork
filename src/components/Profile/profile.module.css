@@ -182,6 +182,7 @@
 }
 
 .editBtn{
+    outline: none;
     border: none;
     background: transparent;
     font-size: 14px;
@@ -333,4 +334,11 @@ input[type="file"] {
 .error{
     border: 1px solid var(--field-error);
     border-radius: 4px;
+}
+
+.contact_example{
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 400;
+    color: var(--field-title);
 }
