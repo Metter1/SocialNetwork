@@ -24,7 +24,6 @@ class UsersAPIComponent extends React.Component {
                 currentPage={this.props.currentPage}
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
-                currentPage={this.props.currentPage}
                 users={this.props.users}
                 toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
                 followingInProgress={this.props.followingInProgress}

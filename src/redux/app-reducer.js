@@ -1,7 +1,7 @@
 
 import { getAuthUserData } from './auth-reducer';
+import { getUserProfile } from './profile-reducer';
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
-
 let initialStore = {
     initialized: false
 }
@@ -15,11 +15,17 @@ const appReducer = (state = initialStore, action) => {
 }
 export const initializedSuccess = (initialized) => ({ type: INITIALIZED_SUCCESS, initialized })
 
-export const initializeApp = () => async (dispatch) => {
+export const initializeApp = (m) => async (dispatch) => {
     let promise = await dispatch(getAuthUserData())
-    Promise.all([promise])
-    dispatch(initializedSuccess(true))
+
+    Promise.all([promise]).then(async(promise)=> {
+       let AuthProfile = await dispatch(getUserProfile(promise[0]))
+       Promise.all([AuthProfile]).then(dispatch(initializedSuccess(true)))
+    })
+    
 }
+
+
 
 
 
