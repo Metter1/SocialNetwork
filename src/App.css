@@ -71,11 +71,13 @@ a {
   --color-primary: #fff;
   --color-title: rgb(26,17,16);
   --color-hover: rgba(57, 97, 136, 0.1);
+  --color-hover2: rgba(57, 96, 136, 0.027);
   --color-input: rgba(57, 97, 136, 0.03);
   --color-alpha: rgba(111, 112, 112, 0.479);
   --color-separator: rgba(31, 31, 31, 0.1);
   --color-line: rgb(220,225,230);
   --color-link: rgb(89, 134, 185);
+  --color-link-active: rgb(51, 131, 223);
   --color-btn: rgb(209,229,245);
   --field-border: #d3d9de;
   --field-title: #656565;

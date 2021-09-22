@@ -53,15 +53,16 @@
     height: 300px;
     background-color: var(--color-primary);
     border-radius: 5px;
+    box-shadow:  1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
 }
 
 .posts {
     width: 100%;
-    height: auto;
+    max-height: auto;
     background-color: var(--color-primary);
     border-radius: 5px;
     margin-bottom: 15px;
-
+    box-shadow:  1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
 }
 
 .text {
@@ -108,14 +109,17 @@
     margin-right: 8px;
 }
 
-.newPost {
+.addnewPost {
     display: flex;
     width: 100%;
     height: 50px;
     border-radius: 4px;
     background-color: var(--color-primary);
     margin-bottom: 25px;
-    transition: ease 0.25s;
+
+    transition: ease-out 0.15s;
+    box-shadow:  1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
+    
 }
 
 .imgProfile {
@@ -133,10 +137,12 @@
     font-size: 14px;
     font-weight: 300;
     line-height: 20px;
+    background: transparent;
 }
 
+
 .newPost_active {
-    transition: ease 0.25s;
+    transition: ease-out 0.25s;
     position: relative;
     display: flex;
     width: 100%;
@@ -144,6 +150,9 @@
     border-radius: 4px;
     background-color: var(--color-primary);
     margin-bottom: 25px;
+    font-weight: 300;
+    box-shadow:  1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
+
 }
 
 .newPost_active::before {
@@ -156,6 +165,7 @@
     right: 0;
     margin: 0 auto;
     background: var(--color-line);
+
 }
 
 textarea.newPost{
@@ -194,5 +204,84 @@ textarea.newPost{
 
 /* rightside */
 
+.rightside_menu{
+}
+
 .rightside_item{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    width: 100%;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 5px 0 5px 15px;
+    border-radius: 2px;
+    color: var(--color-link);
+    transition: ease 0.15s;
+}
+
+.rightside_item:hover{
+    background-color: var(--color-hover);
+    border-radius: 2px;
+}
+
+.activeRS::after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    border-radius: 3px;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    left: -1px;
+    background: var(--color-link);
+}
+
+.activeRS{
+    color: var(--color-title);
+    background-color: var(--color-hover);
+}
+
+.menu_item{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    width: 100%;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 19px;
+    padding: 10px 0 3px 25px;
+    border-radius: 2px;
+    color: var(--color-title);
+    transition: ease 0.15s;
+}
+
+.menu_item:hover{
+    background-color: var(--color-hover);
+    border-radius: 2px;
+}
+
+.activeItem{
+    background-color: var(--color-hover);
+}
+
+.activeItem::after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    border-radius: 3px;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    left: -1px;
+    background: var(--color-link);
 }

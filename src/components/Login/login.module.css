@@ -5,8 +5,10 @@
     top: 0;
     left: 0;
     overflow: auto;
-    background-color: #e4eee9;
-    background-image: linear-gradient(315deg, #e4eee9 0%, #93a5ce 74%);
+    /* background-color: #e4eee9;
+    background-image: linear-gradient(315deg, #e4eee9 0%, #93a5ce 74%); */
+    background: linear-gradient(125.95deg, #C700BF 10.95%, #7DA900 100%), linear-gradient(341.1deg, #00C2FF 7.52%, #4E00B1 77.98%), linear-gradient(222.34deg, #A90000 12.99%, #00FFE0 87.21%), linear-gradient(130.22deg, #8FA600 18.02%, #5A31FF 100%);
+background-blend-mode: screen, color-dodge, color-dodge, normal;
 }
 
 .content {

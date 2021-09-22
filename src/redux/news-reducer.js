@@ -4,7 +4,11 @@ let initialStore = {
     posts: [
         {
             id: 1,
-            message: 'Great',
+            message: `Lorem ipsum dolor sit, amet consectetur adipisicing elit 
+            Dolore temporibus corporis magnam pariatur quas rerum rem iste ipsam, 
+            iure ipsa aspernatur sint placeat magni natus doloremque nobis! Ea blanditiis 
+            dolorum earum, corrupti consequuntur odio, eos totam a aspernatur delectus aliquid
+             eligendi nisi. Enim corrupti odit maxime voluptatum, excepturi magni repellendus!`,
             likes: 10
         },
         {
@@ -26,7 +30,7 @@ const newsReducer = (state = initialStore, action) => {
             let newPostText = state.newPostText;
             return {
                 ...state,
-                posts: [...state.posts, {id: action.id, message: newPostText, likes: 0}],
+                posts: [...state.posts, { id: action.id, message: newPostText, likes: 0 }],
                 newPostText: '',
             }
         case UPDATE_NEW_POST_TEXT:
@@ -38,7 +42,7 @@ const newsReducer = (state = initialStore, action) => {
             return state
     }
 }
-export const addPostActionCreator = (id) => ({ type: ADD_POST, id})
+export const addPostActionCreator = (id) => ({ type: ADD_POST, id })
 export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
 
 export default newsReducer
