@@ -3,7 +3,7 @@ import s from '../profile.module.css'
 import { Form, Formik, Field } from 'formik';
 
 
-export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
+export default function ProfileDataForm({ profile, id, saveProfile, setEditMode }) {
 
     return <div className={s.block_info}>
         <Formik
@@ -26,7 +26,7 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
             onSubmit={(data) => {
                 console.log(data)
 
-                saveProfile(data).then(
+                saveProfile(data, id).then(
                     () => {
                         setEditMode(false)
                     }
@@ -43,7 +43,7 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
                                 ({
                                     field,
                                     meta: { touched, error }
-                                }) => <input type="text" autocomplete="off" className={touched && error ? `${s.profile_title} ${s.profile_title_field} ${s.error}`
+                                }) => <input type="text" autoComplete="off" className={touched && error ? `${s.profile_title} ${s.profile_title_field} ${s.error}`
                                     : `${s.profile_title} ${s.profile_title_field}`} {...field} />
                             }
                         </Field>
@@ -95,7 +95,7 @@ export default function ProfileDataForm({ profile, saveProfile, setEditMode }) {
                                 ({
                                     field,
                                     meta: { touched, error }
-                                }) => <input type="text" autocomplete="off" key={key} className={touched && error ? `${s.profile_title_field} ${s.error}`
+                                }) => <input type="text" autoComplete="off" key={key} className={touched && error ? `${s.profile_title_field} ${s.error}`
                                     : `${s.profile_title_field}`} {...field} />
                             }
                             </Field>

@@ -65,7 +65,7 @@ const LoginForm = (props) => {
 
                                 <button type="submit" className={s.button}>Войти</button>
                                 {props.captchaUrl && <img className={s.img} src={props.captchaUrl} alt='captcha' />}
-                                {props.captchaUrl && <Field autocomplete='off' className={s.captcha} type="text" name="captcha" validate={captchaValidate} />}
+                                {props.captchaUrl && <Field autoComplete='off' className={s.captcha} type="text" name="captcha" validate={captchaValidate} />}
                             </div>
                         </div>
 

@@ -14,7 +14,7 @@ import github_icon from '../../assets/images/profile_icons/github_icon.svg'
 import mainlink_icon from '../../assets/images/profile_icons/mainlink_icon.svg'
 
 
-export default function Profile({ profile, savePhoto, isOwner, saveProfile, status, updateStatus, activeMore, deactiveMore, More }) {
+export default function Profile({ profile, AuthUserID, savePhoto, isOwner, saveProfile, status, updateStatus, activeMore, deactiveMore, More }) {
     let [editMode, setEditMode] = useState(false)
     if (!profile) {
         return <Preloader />
@@ -33,18 +33,18 @@ export default function Profile({ profile, savePhoto, isOwner, saveProfile, stat
                 {isOwner && <label className={s.photo_input} htmlFor="file-upload">Загрузить фото<input id='file-upload' type={"file"} accept="image/*" onChange={onMainPhotoSelected} /> </label>}
             </div>
             {editMode
-                ? <ProfileDataForm profile={profile} Contact={Contact} saveProfile={saveProfile} setEditMode={setEditMode}/>
+                ? <ProfileDataForm profile={profile} id={AuthUserID} Contact={Contact} saveProfile={saveProfile} setEditMode={setEditMode} />
                 : <ProfileData profile={profile} isOwner={isOwner}
                     status={status} updateStatus={updateStatus}
                     activeMore={activeMore} deactiveMore={deactiveMore} More={More}
-                    goToEditMode={() => { setEditMode(true) }}/>}
+                    goToEditMode={() => { setEditMode(true) }} />}
         </div>
     )
 
 }
 
 
-const ProfileData = ({ profile, isOwner, goToEditMode, status, updateStatus, activeMore, deactiveMore, More}) => {
+const ProfileData = ({ profile, isOwner, goToEditMode, status, updateStatus, activeMore, deactiveMore, More }) => {
 
     return <div className={s.block_info}>
         <div className={s.aboutMe_blog}>
