@@ -18,7 +18,7 @@ let initialStore = {
             likes: 5
         }
     ],
-    newPostText: ''
+    newPostText: '',
 }
 const newsReducer = (state = initialStore, action) => {
     switch (action.type) {
@@ -26,8 +26,8 @@ const newsReducer = (state = initialStore, action) => {
             let newPostText = state.newPostText;
             return {
                 ...state,
-                posts: [...state.posts, {id: 4, message: newPostText}],
-                newPostText: ''
+                posts: [...state.posts, {id: action.id, message: newPostText, likes: 0}],
+                newPostText: '',
             }
         case UPDATE_NEW_POST_TEXT:
             return {
@@ -38,7 +38,7 @@ const newsReducer = (state = initialStore, action) => {
             return state
     }
 }
-export const addPostActionCreator = () => ({ type: ADD_POST })
+export const addPostActionCreator = (id) => ({ type: ADD_POST, id})
 export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
 
 export default newsReducer

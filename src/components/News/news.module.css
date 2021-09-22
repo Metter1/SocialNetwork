@@ -57,6 +57,7 @@
 
 .posts {
     width: 100%;
+    height: auto;
     background-color: var(--color-primary);
     border-radius: 5px;
     margin-bottom: 15px;
@@ -75,7 +76,7 @@
 .content::after {
     content: '';
     position: absolute;
-    width: 100%;
+    width: 95%;
     height: 1px;
     bottom: 0;
     left: 0;
@@ -84,13 +85,28 @@
     background: var(--color-line);
 }
 
-.likes {
-    color: black;
-    position: relative;
-    padding: 5px 15px;
+.info{
+    display: flex;
+    align-items: center;
+    padding: 4px 15px;
 }
 
+.like{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--color-title);
+}
 
+.like_active{
+
+}
+
+.like_img{
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
 
 .newPost {
     display: flex;
@@ -172,4 +188,11 @@ textarea.newPost{
 
 .news_btn:disabled {
     background-color: #0070f0b6;
+}
+
+
+
+/* rightside */
+
+.rightside_item{
 }

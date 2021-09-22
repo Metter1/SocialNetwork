@@ -15,7 +15,8 @@ export default function News(props) {
 
     let NewPostEl = React.createRef();
     let addPost = () => {
-        props.addPost()
+        let id = props.posts.length + 1;
+        props.addPost(id)
     }
 
     let onPostChange = () => {
@@ -29,6 +30,8 @@ export default function News(props) {
     // if(NewPostEl){
     //     inputProps.disabled = true;
     // }
+    const [RightMode, setRightMode] = useState(false)
+
     return (
         <div className={s.block}>
             <div className={s.news}>
@@ -36,15 +39,15 @@ export default function News(props) {
                     Mode
                         ? <div className={s.newPost_active}>
                             <img className={s.imgProfile} src={props.authPhoto} alt={props.authName} />
-                            <textarea className={s.newPost} maxLength='100' type="text" placeholder="Что у вас нового?" autoFocus={true}
+                            <textarea className={s.newPost} maxLength='200' type="text" placeholder="Что у вас нового?" autoFocus={true}
                                 onBlur={() => props.newPostText ? setMode(true) : setMode(false)}
                                 ref={NewPostEl} value={props.newPostText} onChange={onPostChange} />
                             <button className={s.news_btn} disabled={props.newPostText ? false : true}
                                 onClick={() => { addPost(); setMode(false) }}>Опубликовать</button>
                         </div>
                         : <div className={s.newPost} >
-                            <NavLink to={'/profile/' + props.id}>
-                            <img className={s.imgProfile} src={props.authPhoto} alt={props.authName} />
+                            <NavLink to={'/profile/' + props.UserId}>
+                                <img className={s.imgProfile} src={props.authPhoto} alt={props.authName} />
                             </NavLink>
                             <input className={s.newPost_title} type="text"
                                 ref={NewPostEl} value={props.newPostText} onChange={onPostChange}
@@ -53,8 +56,28 @@ export default function News(props) {
                 }
                 {postEl}
             </div>
-            <div className={s.rightside}>
-                gfgfgf
+            <div className={s.rightside} >
+                <div className={s.rightside_item} onClick={() => setRightMode(!RightMode)}>
+                    <span>Новости</span>
+                    {
+                        RightMode
+                            ? <ul>
+                                <li>
+                                    sdsd
+                                </li>
+                                <li>
+                                    sdsd
+                                </li>
+                                <li>
+                                    sdsd
+                                </li>
+                                <li>
+                                    sdsd
+                                </li>
+                            </ul>
+                            : null
+                    }
+                </div>
             </div>
         </div>
     )

@@ -10,14 +10,14 @@ let mapStateToProps = (state) => {
         newPostText: state.NewsPage.newPostText,
         authPhoto: state.AuthProfile.AuthProfile.photos.small,
         authName: state.AuthProfile.AuthProfile.fullName,
-        id: state.auth.userID
+        UserId: state.auth.userID,
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        addPost: () => {
-            dispatch(addPostActionCreator())
+        addPost: (id) => {
+            dispatch(addPostActionCreator(id))
         },
         updateNewPostText: (text) => {
             dispatch(updateNewPostTextActionCreator(text))
