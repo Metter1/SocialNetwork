@@ -2,12 +2,12 @@ import React from 'react'
 import s from './sidebar.module.css'
 import { NavLink } from 'react-router-dom'
 
-export default function Sidebar() {
+export default function Sidebar({userID}) {
     return (
         <div>
             <ul className={s.menu}>
 
-                <NavLink to="/profile" activeClassName={s.active}>
+                <NavLink to={`/profile/${userID}`} activeClassName={s.active}>
                     <li className={s.list}>
                         <img className={s.icon} src="https://img.icons8.com/material/24/000000/businessman--v1.png" alt="Icon" />
                         My profile

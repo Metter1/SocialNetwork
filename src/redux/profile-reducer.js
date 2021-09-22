@@ -12,8 +12,8 @@ const profileReducer = (state = initialStore, action) => {
     switch (action.type) {
         case SET_USER_PROFILE:
             return { ...state, profile: action.profile }
-        case SAVE_PHOTO_SUCCESS:
-            return { ...state, profile: {...state.profile, photos: action.photos }}
+            case SAVE_PHOTO_SUCCESS:
+                return { ...state, profile: {...state.profile, photos: action.photos }}
         case SET_STATUS:
             return {
                 ...state,
@@ -29,7 +29,7 @@ const setUserStatus = (status) => ({ type: SET_STATUS, status })
 
 export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos })
 
-export const getUserProfile = (userID, m) => async (dispatch) => {
+export const getUserProfile = (userID) => async (dispatch) => {
     const data = await profileAPI.getProfile(userID)
     dispatch(setUserProfile(data));
 }

@@ -21,7 +21,6 @@ export default function Profile({ profile, savePhoto, isOwner, saveProfile, stat
 
     }
 
-
     const onMainPhotoSelected = (e) => {
         if (e.target.files.length) {
             savePhoto(e.target.files[0]);
@@ -99,6 +98,6 @@ const Contact = ({ contactTitle, contactValue }) => {
     return (<div className={s.contact_item}>
         {!contactIcons.contactTitle ? <img className={s.profile_icon} src={contactIcons[contactTitle]} alt={contactTitle} /> : null}
         <span className={s.link_text}>{contactTitle}:</span>
-        <a className={s.link} href={contactValue} target="_blank">{contactValue}</a>
+        <a className={s.link} href={contactValue} rel="noopener noreferrer" target="_blank">{contactValue}</a>
     </div>)
 }

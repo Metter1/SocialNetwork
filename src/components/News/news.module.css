@@ -99,10 +99,10 @@
     border-radius: 4px;
     background-color: var(--color-primary);
     margin-bottom: 25px;
+    transition: ease 0.25s;
 }
 
-.imgnyzno {
-    background: royalblue;
+.imgProfile {
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -111,6 +111,7 @@
 }
 
 .newPost_title {
+    width: 350px;
     outline: none;
     border: none;
     font-size: 14px;
@@ -119,6 +120,7 @@
 }
 
 .newPost_active {
+    transition: ease 0.25s;
     position: relative;
     display: flex;
     width: 100%;
@@ -146,6 +148,7 @@ textarea.newPost{
     border: none;
     width: 400px;
     height: 100px;
+    background: transparent;
     resize: none;
     border-width: 0;
     overflow: hidden;

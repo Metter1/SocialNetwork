@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import s from '../news.module.css'
 import Post from './post/Post.jsx'
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -28,22 +29,23 @@ export default function News(props) {
     // if(NewPostEl){
     //     inputProps.disabled = true;
     // }
-
     return (
         <div className={s.block}>
             <div className={s.news}>
                 {
                     Mode
                         ? <div className={s.newPost_active}>
-                            <div className={s.imgnyzno}></div>
+                            <img className={s.imgProfile} src={props.authPhoto} alt={props.authName} />
                             <textarea className={s.newPost} maxLength='100' type="text" placeholder="Что у вас нового?" autoFocus={true}
                                 onBlur={() => props.newPostText ? setMode(true) : setMode(false)}
                                 ref={NewPostEl} value={props.newPostText} onChange={onPostChange} />
                             <button className={s.news_btn} disabled={props.newPostText ? false : true}
-                            onClick={() => { addPost(); setMode(false) }}>Опубликовать</button>
+                                onClick={() => { addPost(); setMode(false) }}>Опубликовать</button>
                         </div>
                         : <div className={s.newPost} >
-                            <div className={s.imgnyzno}></div>
+                            <NavLink to={'/profile/' + props.id}>
+                            <img className={s.imgProfile} src={props.authPhoto} alt={props.authName} />
+                            </NavLink>
                             <input className={s.newPost_title} type="text"
                                 ref={NewPostEl} value={props.newPostText} onChange={onPostChange}
                                 placeholder="Что у вас нового?" onClick={() => setMode(true)} />

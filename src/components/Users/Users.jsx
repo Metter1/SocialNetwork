@@ -20,12 +20,12 @@ export default function Users(props) {
                     props.users.map(u => {
                         return (
                             <div className={s.user} key={u.id}>
-                                <NavLink to={'/Profile/' + u.id}>
+                                <NavLink to={'/profile/' + u.id}>
                                     <img src={u.photos.small != null ? u.photos.small : 'https://www.svgrepo.com/show/213315/avatar-profile.svg'}
                                         alt="photo" className={s.photo} />
                                 </NavLink>
                                 <div className={s.block}>
-                                    <NavLink to={'/Profile/' + u.id}>
+                                    <NavLink to={'/profile/' + u.id}>
                                         <span className={s.user__name}>{u.name}</span>
                                     </NavLink>
                                     <span className={`${s.user__name} ${s.user__status}`}>{u.status}</span>
