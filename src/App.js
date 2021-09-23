@@ -25,39 +25,44 @@ class App extends Component {
         if (!this.props.initialized) {
             return <Preloader />
         }
-        return (
-            <div>
+        if (this.props.isAuthProfile) {
+            return (
+                <div>
 
-                <HeaderContainer />
+                    <HeaderContainer />
 
-                <div className='container'>
-                    <SidebarContainer />
-                    <Switch>
-                        <Route path='/profile/:userID?' render={() => <ProfileContainer />} />
+                    <div className='container'>
+                        <SidebarContainer />
+                        <Switch>
+                            <Route path='/profile/:userID?' render={() => <ProfileContainer />} />
 
-                        <Route path='/news' render={() => <NewsContainer />} />
+                            <Route path='/news' render={() => <NewsContainer />} />
 
-                        <Route path='/messages' render={() => <MessengerContainer />} />
+                            <Route path='/messages' render={() => <MessengerContainer />} />
 
-                        <Route path='/users' render={() => <UsersContainer />} />
+                            <Route path='/users' render={() => <UsersContainer />} />
 
-                        <Route path='/login' render={() => <Login />} />
+                            <Route path='/login' render={() => <Login />} />
 
-                        <Route exact path='/' render={() => <Redirect to="/profile" />} />
+                            <Route exact path='/' render={() => <Redirect to="/profile" />} />
 
-                        <Route path='*' render={() => <div>404</div>} />
+                            <Route path='*' render={() => <div>404</div>} />
 
-                    </Switch>
-                </div>
-            </div >
-        );
+                        </Switch>
+                    </div>
+                </div >
+            );
+        }else{
+            return <Login />
+        }
     }
 }
 
 
 const mapStateToProps = (state) => ({
     initialized: state.app.initialized,
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    isAuthProfile: state.AuthProfile.isAuthProfile
 })
 
 export default compose(

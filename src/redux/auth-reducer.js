@@ -1,5 +1,6 @@
 
-import { authAPI, profileAPI, securityAPI } from './../api/api';
+import { authAPI, securityAPI } from './../api/api';
+import { getAuthUserProfile } from './authProfile-reducer';
 const SET_USER_DATA = 'SET_USER_DATA';
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS';
@@ -40,10 +41,11 @@ export const getAuthUserData = () => async (dispatch) => {
 
     if (data.resultCode === 0) {
         let { email, id, login } = data.data
-        dispatch(setAuthUserData(email, id, login, true))
-        return id
+        dispatch(setAuthUserData(email, id, login, true));
+        dispatch(getAuthUserProfile(id));
+        
     }
-    
+    return true
 }
 export const login = (email, password, remember, captcha) => async (dispatch) => {
     const response = await authAPI.login(email, password, remember, captcha)

@@ -3,9 +3,11 @@ import { profileAPI } from "../api/api";
 const SET_AUTH_USER_PROFILE = 'SET_AUTH_USER_PROFILE'
 const SAVE_AUTH_PHOTO_SUCCESS = 'SAVE_AUTH_PHOTO_SUCCESS'
 const SET_AUTH_STATUS = 'SET_AUTH_STATUS'
+const SET_IS_AUTH_PROFILE = 'SET_IS_AUTH_PROFILE'
 const initialStore = {
     AuthProfile: null,
     status: "",
+    isAuthProfile: false,
 }
 const AuthProfileReducer = (state = initialStore, action) => {
     switch (action.type) {
@@ -18,6 +20,8 @@ const AuthProfileReducer = (state = initialStore, action) => {
                 ...state,
                 status: action.status
             }
+        case SET_IS_AUTH_PROFILE:
+            return { ...state, isAuthProfile: action.is }
         default:
             return state;
     }
@@ -26,12 +30,15 @@ const setAuthUserStatus = (status) => ({ type: SET_AUTH_STATUS, status })
 
 const setAuthUserProfile = (profile) => ({ type: SET_AUTH_USER_PROFILE, profile })
 
+const setIsAuthProfile = (is) => ({type: SET_IS_AUTH_PROFILE, is})
+
 export const savePhotoSuccess = (photos) => ({ type: SAVE_AUTH_PHOTO_SUCCESS, photos })
 
 
 export const getAuthUserProfile = (userID) => async (dispatch) => {
     const data = await profileAPI.getProfile(userID)
     dispatch(setAuthUserProfile(data));
+    dispatch(setIsAuthProfile(true));
 }
 
 export const getAuthUserStatus = (userID) => async (dispatch) => {
