@@ -2,14 +2,9 @@ import React from 'react'
 import { Form, Formik, Field } from 'formik';
 import { connect } from 'react-redux';
 import { login } from '../../redux/auth-reducer';
-import { Redirect } from 'react-router-dom';
 import s from './login.module.css'
 
 const Login = (props) => {
-    if (props.isAuth) {
-        return <Redirect to={'/profile'} />
-    }
-
     return (
         <div>
             <LoginForm login={props.login} captchaUrl={props.captchaUrl} error={props.error} />
@@ -51,10 +46,10 @@ const LoginForm = (props) => {
                                             ({
                                                 field,
                                                 meta: { touched, error }
-                                            }) => 
-                                                    <input type="password" placeholder='Введите пароль' className={touched && error ? `${s.form_input} ${s.error}`
-                                                        : `${s.form_title} ${s.form_input}`} {...field} />
-                                                
+                                            }) =>
+                                                <input type="password" placeholder='Введите пароль' className={touched && error ? `${s.form_input} ${s.error}`
+                                                    : `${s.form_title} ${s.form_input}`} {...field} />
+
                                         }
                                     </Field>
                                     <div className={s.checkbox_item}>
@@ -108,5 +103,3 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, { login })(Login)
-// data.email, data.password, data.remember
-// 'ryoldenshi1232@gmail.com', 'ghbdtnrhjn1', true

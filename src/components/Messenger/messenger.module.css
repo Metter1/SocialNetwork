@@ -1,49 +1,221 @@
-.block{
+.block {
     display: flex;
-    justify-content:space-evenly;
-    width: 905px;
+}
+
+.leftside {
+    display: flex;
+    width: 622px;
+    height: 450px;
+    justify-content: space-between;
     background-color: var(--color-primary);
     border-radius: 5px;
-    box-shadow:  1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
+    box-shadow: 1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
+    margin-right: 15px;
 }
-.users{
-    margin-right: 30px;
-    margin-top: 15px;
-    margin-left: 15px;
+
+.users {
     position: relative;
+    width: 250px;
 }
-.users::after{
-    position: absolute;
+
+.users::after {
     content: '';
-    height: 100%;
+    position: absolute;
     width: 1px;
+    height: 95%;
+    right: -1px;
     top: 0;
-    right: 0;
+    bottom: 0;
+    margin: auto 0;
     background: var(--color-line);
 }
-.users a:hover{
-    background-color: rgba(133, 133, 133, 0.1);
+
+.users a:hover {
+    width: 100%;
 }
-.users a{
+
+.users a {
     width: 100px;
-    margin-bottom: 15px;
     color: black;
-    display: block;
-    
 }
 
-.users a.active{
-    color: rgb(72, 255, 0);
-}
-.message{
-    margin-top: 15px;
+.users a.active {
+    color: #0071f0;
 }
 
-.text{
-    margin-bottom: 15px;
-}
-.textarea{
+
+
+.textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.users_item {
+    display: flex;
+    width: 100%;
+    padding: 0px 10px;
+    height: 50px;
+    border-radius: 3px;
+    transition: ease 0.15s;
+}
+
+.users_item:hover {
+    background-color: var(--color-hover);
+}
+
+.user_img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.user_title {
+    height: 35px;
+    align-self: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--color-title);
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+.block_messages {
+    width: 100%;
+    height: 390px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.block_messages::-webkit-scrollbar {
+    width: 0;
+}
+
+.message {
+    width: 100%;
+}
+
+.message_item {
+    width: 400px;
+    padding-left: 10px;
+}
+
+.message_user {
+    display: flex;
+    align-items: center;
+}
+
+.message_userName {
+    vertical-align: bottom;
+    font-size: 14px;
+    font-weight: 400;
+    color: #0071f0;
+    padding-bottom: 20px;
+}
+
+.message_text {
+    position: relative;
+    left: 41px;
+    bottom: 23px;
+    font-size: 14px;
+    line-height: 20px;
+    word-wrap: break-word;
+    padding-right: 10px;
+}
+
+.message_img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.rightside {
+    width: 176px;
+    height: 100px;
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
+}
+
+
+.btnImg {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transform: rotate(-90deg);
+}
+
+.btnImg_hidden {
+    width: 15px;
+    height: 15px;
+    visibility: hidden;
+}
+
+.input {
+    padding: 5px 20px;
+    resize: none;
+    width: 80%;
+    border: none;
+    outline: none;
+    height: 48px;
+    border: 1px solid var(--field-border);
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.input::placeholder {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 19px;
+    color: var(--color-alpha);
+}
+
+.activeRS::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    border-radius: 3px;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    left: -1px;
+    background: var(--color-link);
+}
+
+.activeRS {
+    color: var(--color-title);
+    background-color: var(--color-hover);
+}
+
+.rightside_item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    width: 100%;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 5px 0 5px 15px;
+    border-radius: 2px;
+    color: var(--color-link);
+    transition: ease 0.15s;
+}
+
+.rightside_item:hover {
+    background-color: var(--color-hover);
+    border-radius: 2px;
 }

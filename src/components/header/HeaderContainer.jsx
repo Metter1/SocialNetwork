@@ -15,4 +15,4 @@ const mapStateToProps = (state) => ({
     authName: state.AuthProfile.AuthProfile.fullName,
 })
 
-export default connect(mapStateToProps, { getAuthUserData,  logout })(HeaderContainer);
+export default connect(mapStateToProps, { getAuthUserData, logout })(HeaderContainer);

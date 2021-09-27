@@ -2,7 +2,7 @@ import React from 'react'
 import s from './sidebar.module.css'
 import { NavLink } from 'react-router-dom'
 
-export default function Sidebar({userID}) {
+export default function Sidebar({ userID }) {
     return (
         <div>
             <ul className={s.menu}>

@@ -22,6 +22,23 @@ let initialStore = {
             likes: 5
         }
     ],
+    postsMusic: [
+        {
+            id: 1,
+            message: `magni repellendus!`,
+            likes: 1
+        },
+        {
+            id: 2,
+            message: 'Lorem',
+            likes: 2
+        },
+        {
+            id: 3,
+            message: 'Sapiente.',
+            likes: 3
+        }
+    ],
     newPostText: '',
 }
 const newsReducer = (state = initialStore, action) => {

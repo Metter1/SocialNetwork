@@ -1,4 +1,4 @@
-.preloader{
+.preloader {
     position: absolute;
     margin: auto;
     left: 0;
@@ -9,4 +9,5 @@
     width: 100px;
     height: 100px;
     background: transparent;
+    z-index: 9999;
 }

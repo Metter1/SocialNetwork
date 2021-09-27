@@ -22,7 +22,7 @@ export default function Users(props) {
                             <div className={s.user} key={u.id}>
                                 <NavLink to={'/profile/' + u.id}>
                                     <img src={u.photos.small != null ? u.photos.small : 'https://www.svgrepo.com/show/213315/avatar-profile.svg'}
-                                        alt="photo" className={s.photo} />
+                                        alt={u.id} className={s.photo} />
                                 </NavLink>
                                 <div className={s.block}>
                                     <NavLink to={'/profile/' + u.id}>

@@ -8,12 +8,7 @@ const ProfileStatusFunc = (props) => {
     useEffect(() => {
         setStatus(props.status)
     }, [props.status])
-    // useEffect(() => {
-    //     effect
-    //     return () => {
-    //         cleanup
-    //     }
-    // }, [input])
+
     let deactivateEditMode = () => {
         setEditMode(false)
         props.updateStatus(status)
@@ -35,7 +30,7 @@ const ProfileStatusFunc = (props) => {
             <div >
 
                 {!editMode &&
-                    <p className={s.status_owner} onClick={activateEditMode}>{props.status || 'Установить статус'}</p>
+                    <span className={s.status_owner} onClick={activateEditMode}>{props.status || 'Установить статус'}</span>
                 }
 
             </div>
@@ -48,7 +43,5 @@ const ProfileStatusFunc = (props) => {
         </div>
     )
 }
-
-
 
 export default ProfileStatusFunc;

@@ -5,7 +5,7 @@ import preloader from '../../../assets/images/preloader.svg'
 export default function Preloader() {
     return (
         <div>
-            <img className={s.preloader} src={preloader}/>
+            <img className={s.preloader} src={preloader} alt='preloader'/>
         </div>
     )   
 }

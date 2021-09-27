@@ -1,10 +1,8 @@
-import React from 'react'
 import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/messenger-reducer'
 import Messenger from './Messenger'
 import { connect } from 'react-redux'
 import { withAuthRedirect } from './../hoc/withAuthRedirect';
 import { compose } from 'redux';
-// updateNewPostTextActionCreator;
 
 let mapStateToProps = (state) => {
     return {
@@ -16,8 +14,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        addMessage: () => {
-            dispatch(addMessageActionCreator())
+        addMessage: (id) => {
+            dispatch(addMessageActionCreator(id))
         },
         updateNewMessageText: (text) => {
             dispatch(updateNewMessageTextActionCreator(text))

@@ -43,7 +43,6 @@ export default function Profile({ profile, AuthUserID, savePhoto, isOwner, saveP
 
 }
 
-
 const ProfileData = ({ profile, isOwner, goToEditMode, status, updateStatus, activeMore, deactiveMore, More }) => {
 
     return <div className={s.block_info}>

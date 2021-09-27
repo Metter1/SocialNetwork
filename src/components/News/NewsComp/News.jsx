@@ -4,13 +4,15 @@ import Post from './post/Post.jsx'
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
-
-
 export default function News(props) {
     const [Mode, setMode] = useState(false);
-    let postEl = props.posts.map(p => {
-        return <Post message={p.message} key={p.id} likes={p.likes} />
-    })
+    let posts = props.posts;
+    let allPosts = (posts) => {
+        let postEl = posts.map(p => {
+            return <Post message={p.message} key={p.id} likes={p.likes} />
+        })
+        return postEl
+    }
 
     let NewPostEl = React.createRef();
     let addPost = () => {
@@ -23,14 +25,8 @@ export default function News(props) {
         props.updateNewPostText(text)
     }
 
-    // let inputProps = {
-    //     onBlur={()=>setMode(true)}
-    // }
-    // if(NewPostEl){
-    //     inputProps.disabled = true;
-    // }
     //menu News/Recomend
-    const [RightMode1, setRightMode1] = useState(false)
+    const [RightMode1, setRightMode1] = useState(true)
     const [RightMode2, setRightMode2] = useState(false)
     //ul Music/Friends and another
     const [MenuMode1, setMenuMode1] = useState(false)
@@ -61,57 +57,52 @@ export default function News(props) {
                                 placeholder="Что у вас нового?" onClick={() => setMode(true)} />
                         </div>
                 }
-                {postEl.reverse()}
+                {allPosts(posts).reverse()}
             </div>
+
+            {/* rightside */}
             <div className={s.rightside} >
-                <div className={s.rightside_menu} >
-                    <span className={cn({ [s.activeRS]: RightMode1 === true }, s.rightside_item)}
-                        onClick={() => {
-                            setRightMode1(!RightMode1); setRightMode2(false); setMenuMode1(false); setMenuMode2(false); setMenuMode3(false)
-                        }}>Новости</span>
-                    {
-                        RightMode1
-                            ? <ul className={s.rightside_ul}>
-                                <li className={cn({ [s.activeItem]: MenuMode1 === true }, s.menu_item)} onClick={() => { setMenuMode1(!MenuMode1); setMenuMode2(false); setMenuMode3(false) }}>
-                                    Музыка
+                <span className={cn({ [s.activeRS]: RightMode1 === true }, s.rightside_item)}
+                    onClick={() => {
+                        setRightMode1(!RightMode1); setRightMode2(false); setMenuMode1(false); setMenuMode2(false); setMenuMode3(false)
+                    }}>Новости</span>
+                {
+                    RightMode1
+                        ? <ul className={s.rightside_ul}>
+                            <li className={cn({ [s.activeItem]: MenuMode1 === true }, s.menu_item)} onClick={() => { setMenuMode1(!MenuMode1); setMenuMode2(false); setMenuMode3(false) }}>
+                                Музыка
+                            </li>
+                            <li className={cn({ [s.activeItem]: MenuMode2 === true }, s.menu_item)} onClick={() => { setMenuMode2(!MenuMode2); setMenuMode1(false); setMenuMode3(false) }}>
+                                Фотографии
+                            </li>
+                            <li className={cn({ [s.activeItem]: MenuMode3 === true }, s.menu_item)} onClick={() => { setMenuMode3(!MenuMode3); setMenuMode1(false); setMenuMode2(false) }}>
+                                Друзья
+                            </li>
+                        </ul>
+                        : null
+                }
+
+                <span className={cn({ [s.activeRS]: RightMode2 === true }, s.rightside_item)}
+                    onClick={() => {
+                        setRightMode2(!RightMode2); setRightMode1(false); setMenuMode5(false);
+                        setMenuMode4(false)
+                    }}>Рекомендации</span>
+                {
+                    RightMode2
+                        ? <div className={s.ri}>
+                            <ul >
+                                <li className={cn({ [s.activeItem]: MenuMode4 === true }, s.menu_item)} onClick={() => { setMenuMode4(!MenuMode4); setMenuMode5(false) }}>
+                                    Ваши рекомендации
                                 </li>
-                                <li className={cn({ [s.activeItem]: MenuMode2 === true }, s.menu_item)} onClick={() => { setMenuMode2(!MenuMode2); setMenuMode1(false); setMenuMode3(false) }}>
-                                    Фотографии
+                                <li className={cn({ [s.activeItem]: MenuMode5 === true }, s.menu_item)} onClick={() => { setMenuMode5(!MenuMode5); setMenuMode4(false) }}>
+                                    Рекомендации друзей
                                 </li>
-                                <li className={cn({ [s.activeItem]: MenuMode3 === true }, s.menu_item)} onClick={() => { setMenuMode3(!MenuMode3); setMenuMode1(false); setMenuMode2(false) }}>
-                                    Друзья
-                                </li>
+
                             </ul>
-                            : null
-                    }
-
-                    <span className={cn({ [s.activeRS]: RightMode2 === true }, s.rightside_item)}
-                        onClick={() => {
-                            setRightMode2(!RightMode2); setRightMode1(false); setMenuMode5(false);
-                            setMenuMode4(false)
-                        }}>Рекомендации</span>
-                    {
-                        RightMode2
-                            ? <div className={s.ri}>
-                                <ul >
-                                    <li className={cn({ [s.activeItem]: MenuMode4 === true }, s.menu_item)} onClick={() => { setMenuMode4(!MenuMode4); setMenuMode5(false) }}>
-                                        Ваши рекомендации
-                                    </li>
-                                    <li className={cn({ [s.activeItem]: MenuMode5 === true }, s.menu_item)} onClick={() => { setMenuMode5(!MenuMode5); setMenuMode4(false) }}>
-                                        Рекомендации друзей
-                                    </li>
-
-                                </ul>
-                            </div>
-                            : null
-                    }
-                </div>
+                        </div>
+                        : null
+                }
             </div>
         </div >
     )
 }
-// <div>
-// <textarea  name=""    placeholder="Tell me smt">
-//</textarea>
-
-// </div>

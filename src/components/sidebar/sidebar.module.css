@@ -1,11 +1,12 @@
-.menu{
+.menu {
     border-radius: 20px;
     height: 350px;
     width: 150px;
     margin-right: 6px;
 
 }
-.list img{
+
+.list img {
     margin-top: 3px;
     margin-left: 5px;
     width: 16px;
@@ -13,18 +14,22 @@
     object-fit: cover;
     margin-right: 7px;
 }
-.list{
+
+.list {
     font-size: 14px;
     list-style-type: none;
     display: flex;
     align-items: center;
 }
-.list:hover{
+
+.list:hover {
     background-color: var(--color-hover);
 }
-.menu a{
+
+.menu a {
     color: black;
 }
-a.active{
+
+a.active {
     color: var(--color-link);
 }

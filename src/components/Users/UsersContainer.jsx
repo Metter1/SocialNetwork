@@ -10,7 +10,7 @@ class UsersAPIComponent extends React.Component {
 
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize);
-        
+
     }
     onPageChanged = (pageNumber) => {
         this.props.getPageNum(pageNumber, this.props.pageSize);
@@ -50,4 +50,3 @@ let mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps, { followSuccess, unfollowSuccess, follow, unfollow, toggleIsFollowingProgress, getUsers, getPageNum }),
 )(UsersAPIComponent)
-

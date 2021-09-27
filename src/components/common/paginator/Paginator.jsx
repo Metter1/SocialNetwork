@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import s from './Paginator.module.css'
 import cn from 'classnames'
+import nextArrow from '../../../assets/images/next-arrow.svg'
+import leftArrow from '../../../assets/images/left-arrow.svg'
 
 
 export default function Paginator({ totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10 }) {
@@ -18,11 +20,10 @@ export default function Paginator({ totalUsersCount, pageSize, currentPage, onPa
 
     return (
         <div className={s.paginator}>
-            {portionNumber > 1 && <button onClick={() => {
+            {portionNumber > 1 ? <img src={leftArrow} alt='arrow' className={s.pagination_btn} onClick={() => {
                 setPortionNumber(portionNumber - 1);
-                // onPageChanged(((portionNumber - 1) * portionSize + 1) - portionSize)
                 onPageChanged((portionNumber - 1) * portionSize)
-            }}>Prev</button>}
+            }}/> : <img src={leftArrow} alt='arrow' className={s.pagination_btnHidden}/>}
             {
                 pages.filter(p => (p >= leftPortionPageNumber && p <= rightPotrionPageNumber))
                     .map(p => {
@@ -32,10 +33,10 @@ export default function Paginator({ totalUsersCount, pageSize, currentPage, onPa
                         </span>
                     })
             }
-            {portionCount > portionNumber && <button onClick={() => {
+            {portionCount > portionNumber ? <img src={nextArrow} alt='arrow' className={s.pagination_btn} onClick={() => {
                 setPortionNumber(portionNumber + 1);
                 onPageChanged((portionNumber) * portionSize + 1)
-            }}>Next</button>}
+            }}/> : <img src={nextArrow} alt='arrow' className={s.pagination_btnHidden}/>}
         </div>
     )
 }

@@ -2,7 +2,6 @@ import { React } from 'react';
 import s from '../profile.module.css'
 import { Form, Formik, Field } from 'formik';
 
-
 export default function ProfileDataForm({ profile, id, saveProfile, setEditMode }) {
 
     return <div className={s.block_info}>
@@ -91,13 +90,13 @@ export default function ProfileDataForm({ profile, id, saveProfile, setEditMode 
                         return <div key={key} className={s.field_blog}>
                             <span className={s.field_text}>{key}:</span>
                             <Field type="text" name={`contacts.` + key} validate={validURL}>
-                            {
-                                ({
-                                    field,
-                                    meta: { touched, error }
-                                }) => <input type="text" autoComplete="off" key={key} className={touched && error ? `${s.profile_title_field} ${s.error}`
-                                    : `${s.profile_title_field}`} {...field} />
-                            }
+                                {
+                                    ({
+                                        field,
+                                        meta: { touched, error }
+                                    }) => <input type="text" autoComplete="off" key={key} className={touched && error ? `${s.profile_title_field} ${s.error}`
+                                        : `${s.profile_title_field}`} {...field} />
+                                }
                             </Field>
                         </div>
 
@@ -111,9 +110,9 @@ export default function ProfileDataForm({ profile, id, saveProfile, setEditMode 
 
 function validURL(inputURL) {
     let error;
-    let reg = /https?:\/\/w{0,3}\w*?\.(\w*?\.)?\w{2,3}\S*|www\.(\w*?\.)?\w*?\.\w{2,3}\S*|(\w*?\.)?\w*?\.\w{2,3}[\/\?]\S*/
-    if (!(reg.test(inputURL)|| inputURL.length === 0)) {
-    error = 'error'
+    let reg = /https?:\/\/w{0,3}\w*?\.(\w*?\.)?\w{2,3}\S*|www\.(\w*?\.)?\w*?\.\w{2,3}\S*|(\w*?\.)?\w*?\.\w{2,3}[/?]\S*/
+    if (!(reg.test(inputURL) || inputURL.length === 0)) {
+        error = 'error'
     }
     return error;
 }

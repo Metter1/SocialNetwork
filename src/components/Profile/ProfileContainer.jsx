@@ -26,13 +26,10 @@ class ProfileContainer extends React.Component {
     }
 
     refreshProfile() {
-        
+
         let userID = this.props.match.params.userID;
         if (!userID || (this.props.authorizedUserID === Number(this.props.match.params.userID))) {
             userID = this.props.authorizedUserID;
-            if (!userID) {
-                this.props.history.push("/login")
-            }
             this.props.getAuthUserStatus(userID)
         } else {
             this.props.getUserProfile(userID);
@@ -51,7 +48,7 @@ class ProfileContainer extends React.Component {
         }
     }
 
-    
+
     isOwner() {
         return !this.props.match.params.userID || (this.props.authorizedUserID === Number(this.props.match.params.userID))
     }
@@ -101,4 +98,3 @@ export default compose
         withAuthRedirect
     )
     (ProfileContainer)
-

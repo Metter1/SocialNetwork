@@ -7,6 +7,7 @@ import { withAuthRedirect } from './../hoc/withAuthRedirect';
 let mapStateToProps = (state) => {
     return {
         posts: state.NewsPage.posts,
+        postsMusic: state.NewsPage.postsMusic,
         newPostText: state.NewsPage.newPostText,
         authPhoto: state.AuthProfile.AuthProfile.photos.small,
         authName: state.AuthProfile.AuthProfile.fullName,

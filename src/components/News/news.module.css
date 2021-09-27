@@ -27,9 +27,6 @@
     outline: none;
 }
 
-/* .add textarea:focus{
-    min-height: 100px;
-} */
 
 .add textarea::placeholder {
     font-size: 14px;
@@ -53,7 +50,7 @@
     height: 300px;
     background-color: var(--color-primary);
     border-radius: 5px;
-    box-shadow:  1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
+    box-shadow: 1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
 }
 
 .posts {
@@ -62,7 +59,7 @@
     background-color: var(--color-primary);
     border-radius: 5px;
     margin-bottom: 15px;
-    box-shadow:  1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
+    box-shadow: 1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
 }
 
 .text {
@@ -86,24 +83,21 @@
     background: var(--color-line);
 }
 
-.info{
+.info {
     display: flex;
     align-items: center;
     padding: 4px 15px;
 }
 
-.like{
+.like {
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
     color: var(--color-title);
 }
 
-.like_active{
 
-}
-
-.like_img{
+.like_img {
     width: 16px;
     height: 16px;
     margin-right: 8px;
@@ -116,10 +110,9 @@
     border-radius: 4px;
     background-color: var(--color-primary);
     margin-bottom: 25px;
-
     transition: ease-out 0.15s;
-    box-shadow:  1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
-    
+    box-shadow: 1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
+
 }
 
 .imgProfile {
@@ -151,7 +144,7 @@
     background-color: var(--color-primary);
     margin-bottom: 25px;
     font-weight: 300;
-    box-shadow:  1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
+    box-shadow: 1px 1px 2px #d5d5d5, -1px -1px 4px #ebebeb;
 
 }
 
@@ -168,7 +161,7 @@
 
 }
 
-textarea.newPost{
+textarea.newPost {
     padding: 10px 0 0 0;
     outline: none;
     border: none;
@@ -200,14 +193,9 @@ textarea.newPost{
     background-color: #0070f0b6;
 }
 
-
-
 /* rightside */
 
-.rightside_menu{
-}
-
-.rightside_item{
+.rightside_item {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -225,12 +213,12 @@ textarea.newPost{
     transition: ease 0.15s;
 }
 
-.rightside_item:hover{
+.rightside_item:hover {
     background-color: var(--color-hover);
     border-radius: 2px;
 }
 
-.activeRS::after{
+.activeRS::after {
     content: '';
     position: absolute;
     width: 2px;
@@ -242,12 +230,12 @@ textarea.newPost{
     background: var(--color-link);
 }
 
-.activeRS{
+.activeRS {
     color: var(--color-title);
     background-color: var(--color-hover);
 }
 
-.menu_item{
+.menu_item {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -265,16 +253,16 @@ textarea.newPost{
     transition: ease 0.15s;
 }
 
-.menu_item:hover{
+.menu_item:hover {
     background-color: var(--color-hover);
     border-radius: 2px;
 }
 
-.activeItem{
+.activeItem {
     background-color: var(--color-hover);
 }
 
-.activeItem::after{
+.activeItem::after {
     content: '';
     position: absolute;
     width: 2px;
