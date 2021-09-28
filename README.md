@@ -19,6 +19,8 @@
 
 ##### How to login
 
+_https://metter1.github.io/SocialNetwork_
+
 _mail_ | _password_
 -------|-------
 ``eu.zharovtsev@gmail.com``|``zharovtsev``
