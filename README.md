@@ -1,11 +1,11 @@
 #Social-Network
 
 ###The project uses: 
-- **API**
-- **React**
-- **Redux**
-- **Formik**
-- **css-modules**
+	- **API**
+	- **React**
+	- **Redux**
+	- **Formik**
+	- **css-modules**
 
 ###API ([More details here](https://social-network.samuraijs.com/docs))
 
