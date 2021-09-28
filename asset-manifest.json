@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/my-app/static/css/main.19c99a1d.chunk.css",
+    "main.css": "/my-app/static/css/main.d723c1cd.chunk.css",
     "main.js": "/my-app/static/js/main.7e1d7f5a.chunk.js",
     "main.js.map": "/my-app/static/js/main.7e1d7f5a.chunk.js.map",
     "runtime-main.js": "/my-app/static/js/runtime-main.425ef424.js",
@@ -16,7 +16,7 @@
     "index.html": "/my-app/index.html",
     "static/css/3.ce1683bc.chunk.css.map": "/my-app/static/css/3.ce1683bc.chunk.css.map",
     "static/css/4.b5c1a3b0.chunk.css.map": "/my-app/static/css/4.b5c1a3b0.chunk.css.map",
-    "static/css/main.19c99a1d.chunk.css.map": "/my-app/static/css/main.19c99a1d.chunk.css.map",
+    "static/css/main.d723c1cd.chunk.css.map": "/my-app/static/css/main.d723c1cd.chunk.css.map",
     "static/js/2.de9b2ce0.chunk.js.LICENSE.txt": "/my-app/static/js/2.de9b2ce0.chunk.js.LICENSE.txt",
     "static/media/facebook_icon.f38066aa.svg": "/my-app/static/media/facebook_icon.f38066aa.svg",
     "static/media/github_icon.4e195a3b.svg": "/my-app/static/media/github_icon.4e195a3b.svg",
@@ -37,7 +37,7 @@
   "entrypoints": [
     "static/js/runtime-main.425ef424.js",
     "static/js/2.de9b2ce0.chunk.js",
-    "static/css/main.19c99a1d.chunk.css",
+    "static/css/main.d723c1cd.chunk.css",
     "static/js/main.7e1d7f5a.chunk.js"
   ]
 }
