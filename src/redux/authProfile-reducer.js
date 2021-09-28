@@ -9,6 +9,7 @@ const initialStore = {
     status: "",
     isAuthProfile: false,
 }
+
 const AuthProfileReducer = (state = initialStore, action) => {
     switch (action.type) {
         case SET_AUTH_USER_PROFILE:
@@ -26,14 +27,14 @@ const AuthProfileReducer = (state = initialStore, action) => {
             return state;
     }
 }
+
 const setAuthUserStatus = (status) => ({ type: SET_AUTH_STATUS, status })
 
 const setAuthUserProfile = (profile) => ({ type: SET_AUTH_USER_PROFILE, profile })
 
-const setIsAuthProfile = (is) => ({type: SET_IS_AUTH_PROFILE, is})
+const setIsAuthProfile = (is) => ({ type: SET_IS_AUTH_PROFILE, is })
 
 export const savePhotoSuccess = (photos) => ({ type: SAVE_AUTH_PHOTO_SUCCESS, photos })
-
 
 export const getAuthUserProfile = (userID) => async (dispatch) => {
     const data = await profileAPI.getProfile(userID)
@@ -45,6 +46,7 @@ export const getAuthUserStatus = (userID) => async (dispatch) => {
     const response = await profileAPI.getStatus(userID)
     dispatch(setAuthUserStatus(response.data));
 }
+
 export const updateAuthUserStatus = (status) => async (dispatch) => {
     const response = await profileAPI.updateStatus(status)
     if (response.data.resultCode === 0) {
@@ -59,6 +61,7 @@ export const savePhoto = (file) => async (dispatch) => {
         dispatch(savePhotoSuccess(response.data.data.photos));
     }
 }
+
 export const saveProfile = (profile, userID) => async (dispatch, getState) => {
     const response = await profileAPI.saveProfile(profile)
     if (response.data.resultCode === 0) {

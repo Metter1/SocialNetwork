@@ -34,7 +34,6 @@ export const setAuthUserData = (email, userID, login, isAuth) => ({ type: SET_US
 export const setloginSuccess = (loginSuccess) => ({ type: LOGIN_SUCCESS, loginSuccess })
 export const getCaptchaUrlSuccess = (captchaUrl) => ({ type: GET_CAPTCHA_URL_SUCCESS, payload: { captchaUrl } })
 
-
 export const getAuthUserData = () => async (dispatch) => {
 
     const data = await authAPI.getAuth();
@@ -43,7 +42,7 @@ export const getAuthUserData = () => async (dispatch) => {
         let { email, id, login } = data.data
         dispatch(setAuthUserData(email, id, login, true));
         dispatch(getAuthUserProfile(id));
-        
+
     }
     return true
 }
@@ -67,14 +66,11 @@ export const getCaptchaUrl = () => async (dispatch) => {
     dispatch(getCaptchaUrlSuccess(captchaUrl))
 }
 
-
 export const logout = () => async (dispatch) => {
     const response = await authAPI.logout()
     if (response.data.resultCode === 0) {
         dispatch(setAuthUserData(null, null, null, false))
     }
 }
-
-
 
 export default authReducer

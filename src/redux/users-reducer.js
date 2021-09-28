@@ -21,12 +21,12 @@ const usersReducer = (state = initialStore, action) => {
         case FOLLOW:
             return {
                 ...state,
-                users: updateObjectInArray(state.users, action.userID, 'id', {followed: true})
+                users: updateObjectInArray(state.users, action.userID, 'id', { followed: true })
             }
         case UNFOLLOW:
             return {
                 ...state,
-                users: updateObjectInArray(state.users, action.userID, 'id', {followed: false})
+                users: updateObjectInArray(state.users, action.userID, 'id', { followed: false })
             }
         case SET_USERS:
             return { ...state, users: [...action.users] }
@@ -54,7 +54,6 @@ export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, curren
 export const setUsersTotalCount = (totalPage) => ({ type: SET_USERS_TOTAL_COUNT, totalPage })
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
 export const toggleIsFollowingProgress = (followingInProgress, userID) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, followingInProgress, userID })
-
 
 //Thunks
 export const getUsers = (currentPage, pageSize) => {
@@ -98,16 +97,4 @@ export const unfollow = (userID) => {
     }
 }
 
-
 export default usersReducer
-
-
-// props.toggleIsFollowing(true, u.id)
-
-// usersAPI.Follow(u.id).then(data => {
-
-//     if (data.resultCode === 0) {
-//         props.follow(u.id)
-//     }
-//     props.toggleIsFollowing(false, u.id)
-// });

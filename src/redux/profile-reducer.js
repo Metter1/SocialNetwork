@@ -11,7 +11,7 @@ const profileReducer = (state = initialStore, action) => {
     switch (action.type) {
         case SET_USER_PROFILE:
             return { ...state, profile: action.profile }
-            
+
         case SET_STATUS:
             return {
                 ...state,
@@ -24,7 +24,6 @@ const profileReducer = (state = initialStore, action) => {
 
 const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 const setUserStatus = (status) => ({ type: SET_STATUS, status })
-
 
 export const getUserProfile = (userID) => async (dispatch) => {
     const data = await profileAPI.getProfile(userID)

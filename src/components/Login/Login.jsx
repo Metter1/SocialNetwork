@@ -5,15 +5,18 @@ import { login } from '../../redux/auth-reducer';
 import s from './login.module.css'
 
 const Login = (props) => {
+    
+
     return (
         <div>
-            <LoginForm login={props.login} captchaUrl={props.captchaUrl} error={props.error} />
+            <LoginForm login={props.login} captchaUrl={props.captchaUrl} error={props.error}  />
             {props.loginSuccess && <Error />}
         </div>
     )
 }
 
 const LoginForm = (props) => {
+    
     return (
         <Formik
             initialValues={{ email: '', password: '', remember: '' }}
@@ -37,7 +40,7 @@ const LoginForm = (props) => {
                                             ({
                                                 field,
                                                 meta: { touched, error }
-                                            }) => <input type="text" placeholder='Введите email' className={touched && error ? `${s.form_input} ${s.error}`
+                                            }) => <input id='mail' type="text" placeholder='Введите email' className={touched && error ? `${s.form_input} ${s.error}`
                                                 : `${s.form_title} ${s.form_input}`} {...field} />
                                         }
                                     </Field>
@@ -47,7 +50,7 @@ const LoginForm = (props) => {
                                                 field,
                                                 meta: { touched, error }
                                             }) =>
-                                                <input type="password" placeholder='Введите пароль' className={touched && error ? `${s.form_input} ${s.error}`
+                                                <input id='password' type="password" placeholder='Введите пароль' className={touched && error ? `${s.form_input} ${s.error}`
                                                     : `${s.form_title} ${s.form_input}`} {...field} />
 
                                         }
