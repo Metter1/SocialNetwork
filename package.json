@@ -1,8 +1,8 @@
 {
-  "name": "my-app",
+  "name": "SocialNetwork",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://metter1.github.io/my-app",
+  "homepage": "https://metter1.github.io/SocialNetwork",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
