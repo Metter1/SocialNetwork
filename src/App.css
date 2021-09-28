@@ -84,3 +84,9 @@ a {
   --field-error: rgb(255, 73, 73);
   --form-btn: #0071f0;
 }
+
+@media (max-width: 1000px) {
+  .container {
+      max-width: 960px;
+  }
+}

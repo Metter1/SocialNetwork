@@ -1,7 +1,7 @@
 .head {
-    width: 100%;
     box-shadow: 0px 1px 40px rgba(51, 51, 51, 0.1);
-    margin-bottom: 10px;
+    width: 100%;
+    margin: 0 auto 10px;
     background: linear-gradient(125.95deg, #C700BF 10.95%, #c0adec 100%), linear-gradient(341.1deg, #00ff15 7.52%, #48148b 77.98%), linear-gradient(222.34deg, #900909 12.99%, #00FFE0 87.21%), linear-gradient(130.22deg, #1149ff 18.02%, #ff315e 100%);
     background-blend-mode: screen, color-dodge, color-dodge, normal;
 }
@@ -115,3 +115,9 @@ li {
     margin: 0 auto;
     display: flex;
 }
+
+@media (max-width: 1000px) {
+    .head {
+        width: 1000px;
+    }
+  }
